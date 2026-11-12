@@ -1,0 +1,15 @@
+# Install a platform-matched torch 2.11.0 and torchvision 0.26.0 first.
+numpy==2.3.4
+scipy==1.16.3
+Pillow==12.0.0
+pandas==2.3.3
+opencv-python-headless==4.13.0.92
+scikit-learn==1.7.2
+joblib==1.5.2
+threadpoolctl==3.6.0
+timm==1.0.29
+matplotlib==3.10.7
+tqdm>=4.66,<5
+einops>=0.8,<0.9
+packaging>=24
+

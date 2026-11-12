@@ -1,0 +1,14 @@
+/data/
+/weights/
+/work/
+/artifacts/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+kaggle.json
+.env

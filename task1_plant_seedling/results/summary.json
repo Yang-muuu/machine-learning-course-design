@@ -1,0 +1,242 @@
+{
+  "classes": [
+    "Black-grass",
+    "Common wheat",
+    "Loose Silky-bent",
+    "Scentless Mayweed",
+    "Sugar beet"
+  ],
+  "train_counts": {
+    "Black-grass": 100,
+    "Common wheat": 100,
+    "Loose Silky-bent": 100,
+    "Scentless Mayweed": 100,
+    "Sugar beet": 100
+  },
+  "unlabeled_test_count": 378,
+  "final_submission": {
+    "data_rows": 378,
+    "header": [
+      "ID",
+      "Category"
+    ],
+    "template_order_match": true,
+    "unique_ids": 378,
+    "test_prediction_counts": {
+      "Black-grass": 54,
+      "Common wheat": 33,
+      "Loose Silky-bent": 118,
+      "Scentless Mayweed": 90,
+      "Sugar beet": 83
+    },
+    "sha256": "dc006eb23ba3a4a168cb1aa4751347c9b5e9986908d3a77e8a7643a1b1599254",
+    "sorted_id_category_sha256": "130690bb27b01ce301268f4e9e47512920772cd330863d349c080edb0b776928",
+    "variant": "historical_teacher_student_blend",
+    "byte_identical_to_original_supervised": false,
+    "prediction_differences_from_original_supervised": 0,
+    "historical_public_mean_f1": 0.9708,
+    "historical_submission_ref": 57043322,
+    "historical_submission_utc": "2026-10-10T13:21:40.013Z",
+    "historical_status": "COMPLETE",
+    "score_source": "Archived Kaggle public result for the exploratory blend, matched by CSV SHA-256"
+  },
+  "supervised": {
+    "arch": "convnext_small.fb_in22k_ft_in1k",
+    "input_px": 448,
+    "folds": 5,
+    "train_per_fold": 400,
+    "validation_per_fold": 100,
+    "epochs_per_fold": 40,
+    "batch_size": 12,
+    "seed": 42,
+    "loss": "CrossEntropyLoss with label smoothing",
+    "label_smoothing": 0.1,
+    "head_lr": 0.0003,
+    "backbone_lr": 8.999999999999999e-05,
+    "weight_decay": 0.05,
+    "warmup_epochs": 3,
+    "mixup_alpha": 0.2,
+    "cutmix_alpha": 1.0,
+    "mix_probability": 0.3,
+    "ema_decay": 0.999,
+    "gradient_clip": 1.0,
+    "dropout": 0.1,
+    "drop_path_rate": 0.1,
+    "data_workers": 2,
+    "tta": false,
+    "fold_results": [
+      {
+        "fold": 1,
+        "best_epoch": 15,
+        "selected_weight": "ema",
+        "val_macro_f1": 0.9602376485303313,
+        "train_accuracy": 0.995
+      },
+      {
+        "fold": 2,
+        "best_epoch": 35,
+        "selected_weight": "raw",
+        "val_macro_f1": 0.969993746091307,
+        "train_accuracy": 1.0
+      },
+      {
+        "fold": 3,
+        "best_epoch": 26,
+        "selected_weight": "ema",
+        "val_macro_f1": 0.9800000000000001,
+        "train_accuracy": 0.9975
+      },
+      {
+        "fold": 4,
+        "best_epoch": 27,
+        "selected_weight": "raw",
+        "val_macro_f1": 0.9604737604737604,
+        "train_accuracy": 0.9975
+      },
+      {
+        "fold": 5,
+        "best_epoch": 27,
+        "selected_weight": "raw",
+        "val_macro_f1": 0.9799498746867169,
+        "train_accuracy": 1.0
+      }
+    ],
+    "fold_f1_mean": 0.9701310059564231,
+    "fold_f1_sd_population": 0.008774588062334152,
+    "mean_train_accuracy": 0.998,
+    "oof_accuracy": 0.97,
+    "oof_macro_f1": 0.9700979037065764,
+    "oof_correct": 485,
+    "oof_errors": 15,
+    "confusion_rows_true_columns_pred": [
+      [
+        94,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        2,
+        97,
+        0,
+        0,
+        1
+      ],
+      [
+        6,
+        0,
+        94,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        100
+      ]
+    ],
+    "per_class_precision": [
+      0.9215686274509803,
+      1.0,
+      0.94,
+      1.0,
+      0.9900990099009901
+    ],
+    "per_class_recall": [
+      0.94,
+      0.97,
+      0.94,
+      1.0,
+      1.0
+    ],
+    "per_class_f1": [
+      0.9306930693069307,
+      0.9847715736040609,
+      0.94,
+      1.0,
+      0.9950248756218906
+    ],
+    "black_grass_loose_silky_bent_mutual_errors": 12,
+    "epoch_means": {
+      "1": {
+        "train_loss": 1.58994,
+        "val_macro_f1": 0.52046
+      },
+      "10": {
+        "train_loss": 0.63994,
+        "val_macro_f1": 0.9415
+      },
+      "20": {
+        "train_loss": 0.56358,
+        "val_macro_f1": 0.94566
+      },
+      "30": {
+        "train_loss": 0.48374,
+        "val_macro_f1": 0.95184
+      },
+      "40": {
+        "train_loss": 0.47156,
+        "val_macro_f1": 0.95428
+      }
+    },
+    "original_cloud_log_elapsed_minutes": 67.13153862578334,
+    "gpu_metadata": "NvidiaTeslaT4"
+  },
+  "pseudolabel_comparison": {
+    "gpu": "Tesla T4",
+    "torch_version": "2.11.0+cu128",
+    "timm_version": "1.0.29",
+    "threshold": 0.9,
+    "all_five_folds_agree": true,
+    "per_class_cap": 50,
+    "eligible_before_cap": 296,
+    "selected": 208,
+    "selected_per_class": {
+      "Black-grass": 28,
+      "Common wheat": 30,
+      "Loose Silky-bent": 50,
+      "Scentless Mayweed": 50,
+      "Sugar beet": 50
+    },
+    "unlabeled_loss_weight": 0.2,
+    "epochs_per_student": 5,
+    "students_completed": 5,
+    "labeled_training_images_per_student": 500,
+    "student_oof": null,
+    "fallback_to_teacher": false,
+    "teacher_weight": 0.5,
+    "student_weight": 0.5,
+    "teacher_oof_and_fold_test_probs_exactly_match_reference": true,
+    "student_only_argmax_changes_vs_teacher": 1,
+    "blend_argmax_changes_vs_teacher": 0,
+    "blend_nonidentical_probability_rows": 378,
+    "blend_mean_l1_probability_shift": 0.01340551394969225,
+    "formal_elapsed_minutes": 91.31600162665
+  },
+  "reproduction_checks": {
+    "historical_new_packaging_gpu_smoke_minutes": 0.6997761949999889,
+    "historical_new_packaging_gpu_smoke_batch": 4,
+    "historical_native_batch12_smoke_passed": true,
+    "cache_eval_pixels_bitwise_equal": true,
+    "cache_augmented_pixels_bitwise_equal": true,
+    "cache_three_epochs_two_worker_streams_equal": true,
+    "cache_test_images_checked": 20
+  },
+  "source_artifact_sha256": {
+    "original_training_log": "9437ee43bd0ae8003d608a32c4d6d47ac5945f0a266d71c755eabb3b1b772e76",
+    "original_cv_report": "9acc80465a07ef0ec7dff0f69da6c6b612b055eacbfdd5f130ee3f600150db18",
+    "original_oof_probabilities": "60760e0732e003607655a4fcf017623c92037dbc4bf97b99a745429974363f71",
+    "original_submission": "3b5f222fc11e9ebd36c9974e1ab188d8f95dd2862122434cb9728b0865268e62",
+    "pseudolabel_run_report": "178eb112a2476c983d0ca9ed16b09332febef0d51a807cfbd2d88570b3b73184"
+  }
+}

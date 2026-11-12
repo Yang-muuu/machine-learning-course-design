@@ -1,0 +1,18 @@
+{
+  "seed": 20261021,
+  "epochs": 80,
+  "batch_size": 8,
+  "lr": 0.001,
+  "input_size": 448,
+  "torch_version": "2.11.0+cu128",
+  "timm_version": "1.0.29",
+  "gpus": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "encoder_training": "fully frozen; eval mode including BN and stochastic depth",
+  "decoder": "4 x 32-channel projections; shared fusion/refinement; 224x224 heatmap and region",
+  "training_precision": "frozen encoder fp16 autocast; decoder and losses fp32",
+  "evaluation_precision": "fp32",
+  "checkpoint_selection": "fixed epoch 80 EMA, no best validation epoch"
+}

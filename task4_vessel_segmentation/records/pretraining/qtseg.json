@@ -1,0 +1,7 @@
+{
+  "enum": "QTSeg official FIVES v0.3.1",
+  "url": "https://github.com/tpnam0901/QTSeg/releases/download/assets/FIVES_ckpt_v0.3.1.zip",
+  "source_repository": "https://github.com/tpnam0901/QTSeg/tree/v0.3.1",
+  "dataset": "FIVES retinal vessels; release cfg: dataloader=FIVESA, data_root=working/dataset/FIVES",
+  "normalization": "RGB [0,1] -> [-1,1]; foreground logit=class1-class0"
+}

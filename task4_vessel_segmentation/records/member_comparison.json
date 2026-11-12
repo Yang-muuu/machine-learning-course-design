@@ -1,0 +1,43 @@
+{
+  "scope": "20 training images, common fixed fivefold development validation",
+  "evaluation_protocol": "supplied_converter_bilinear512_nonzero_v1",
+  "tuning_candidate_count": 45,
+  "source_report_sha256": "aa9edbe70c2fcae305c3396002f21025e10e5fcab7b6ed54bd34e8dfa29a3d1e",
+  "members": {
+    "fr96": {
+      "selected_threshold": 0.475,
+      "selected_postprocess": "none",
+      "macro_dice_selected": 0.8513022072566953,
+      "macro_dice_threshold_0_5_no_morphology": 0.8512686797613547,
+      "predictions_sha256": "3333791e0eb03a56ed1cf1310db1428d2cabe85a1b949a1fbb0ea90b89b35295"
+    },
+    "pixel": {
+      "selected_threshold": 0.45,
+      "selected_postprocess": "cross1",
+      "macro_dice_selected": 0.8270561481795402,
+      "macro_dice_threshold_0_5_no_morphology": 0.7406430337184068,
+      "predictions_sha256": "8620d8d066e784a8ea7aa9c276077bf0bb12b4ab218030c3c46961e465b07fcf"
+    },
+    "convnext": {
+      "selected_threshold": 0.475,
+      "selected_postprocess": "cross1",
+      "macro_dice_selected": 0.8271354599561727,
+      "macro_dice_threshold_0_5_no_morphology": 0.7425461582101612,
+      "predictions_sha256": "bb4763437ae598135757ebf7348d94f12d5a0e46ada5af0ed6c9e297d7858b54"
+    },
+    "qtseg": {
+      "selected_threshold": 0.55,
+      "selected_postprocess": "cross1",
+      "macro_dice_selected": 0.8323346119316307,
+      "macro_dice_threshold_0_5_no_morphology": 0.7597367812461621,
+      "predictions_sha256": "4470b8ef954b48951d0ed1fb93beae76cd729c5e4b74c5ebd5630db9947eb5b0"
+    },
+    "retfound": {
+      "selected_threshold": 0.425,
+      "selected_postprocess": "cross1",
+      "macro_dice_selected": 0.8191912596799785,
+      "macro_dice_threshold_0_5_no_morphology": 0.7360537826793482,
+      "predictions_sha256": "67e72a377537e3ddcf7812bc946ec0ea4c64cf0f80af4aa835755c4e3c3ad1cb"
+    }
+  }
+}

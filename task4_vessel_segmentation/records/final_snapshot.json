@@ -1,0 +1,382 @@
+{
+  "snapshot_date": "2026-11-03",
+  "kaggle_score_user_reported": 0.8653,
+  "evaluation_protocol": "supplied_converter_bilinear512_nonzero_v1",
+  "cv_protocol": "fivefold_seed42",
+  "macro_oof_dice": 0.8525935020463692,
+  "threshold": 0.3,
+  "postprocess": "none",
+  "splits": [
+    {
+      "train_ids": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "12",
+        "13",
+        "14",
+        "15",
+        "18",
+        "19",
+        "20"
+      ],
+      "val_ids": [
+        "16",
+        "11",
+        "17",
+        "5"
+      ]
+    },
+    {
+      "train_ids": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "8",
+        "9",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "19",
+        "20"
+      ],
+      "val_ids": [
+        "10",
+        "7",
+        "6",
+        "18"
+      ]
+    },
+    {
+      "train_ids": [
+        "1",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "13",
+        "14",
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "val_ids": [
+        "15",
+        "20",
+        "12",
+        "2"
+      ]
+    },
+    {
+      "train_ids": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "6",
+        "7",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "15",
+        "16",
+        "17",
+        "18",
+        "20"
+      ],
+      "val_ids": [
+        "8",
+        "4",
+        "19",
+        "14"
+      ]
+    },
+    {
+      "train_ids": [
+        "2",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "10",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "val_ids": [
+        "13",
+        "1",
+        "3",
+        "9"
+      ]
+    }
+  ],
+  "members": {
+    "fr96": {
+      "cache_slug": "native_raster_fr96_v19",
+      "weight": 0.458145,
+      "checkpoint_sha256": [
+        "b1e762f6d2603815006c0df810629a9dc4fbda2a1d418c072e2d9b6ec8fa7cae",
+        "a40fb77e26e5db85f73a58f16284e8ec02686e772a768cd74b68d2623000950f",
+        "0977922438b5a2132b84168817f6bd981693f645598419d914f647cf44cd09b7",
+        "5118f2c5f23120d0769c70f69a0735323609fc82ab4909bd467a73ac267bba87",
+        "1cd0f890c46792482930e3d525d573b99797b5ff1fa470b9a763038b046341be"
+      ],
+      "weights_folder": "frunet_native96_v8",
+      "config_name": "2026task4-frunet-native96-v8",
+      "best_epochs": [
+        76,
+        112,
+        56,
+        100,
+        104
+      ]
+    },
+    "pixel": {
+      "cache_slug": "pixel_hgb_v1",
+      "weight": 0.2952450000000001,
+      "checkpoint_sha256": [
+        "101e2bba9ef2d6b45b0aede305de475aca224b8005e306de420e57eebbb406dc",
+        "ccdfb636098f48e798394b72cb5d4433ab646e443a35578f3066aebf4f47eefa",
+        "80db02f26bff92c9fd66fdbce375915742027afba4906daaea77cc15cdaaa620",
+        "23e4a619ef21c9ca18b4f783ecca7cecd7e3bdf2a9faa4f280196a1c7ba66572",
+        "856049c23fd7ba1f4abc8be6ce9d06633c3cb3431c39e8e5880d0144020bc52c"
+      ],
+      "feature_names": [
+        "red",
+        "red_ratio",
+        "green",
+        "green_ratio",
+        "blue",
+        "blue_ratio",
+        "lab_L",
+        "lab_a",
+        "lab_b",
+        "green_clahe",
+        "green_mean_0.7",
+        "green_dark_contrast_0.7",
+        "green_std_0.7",
+        "hessian_max_0.7",
+        "hessian_min_0.7",
+        "gradient_magnitude_0.7",
+        "green_mean_1.2",
+        "green_dark_contrast_1.2",
+        "green_std_1.2",
+        "hessian_max_1.2",
+        "hessian_min_1.2",
+        "gradient_magnitude_1.2",
+        "green_mean_2.0",
+        "green_dark_contrast_2.0",
+        "green_std_2.0",
+        "hessian_max_2.0",
+        "hessian_min_2.0",
+        "gradient_magnitude_2.0",
+        "green_mean_3.5",
+        "green_dark_contrast_3.5",
+        "green_std_3.5",
+        "hessian_max_3.5",
+        "hessian_min_3.5",
+        "gradient_magnitude_3.5",
+        "green_mean_6.0",
+        "green_dark_contrast_6.0",
+        "green_std_6.0",
+        "hessian_max_6.0",
+        "hessian_min_6.0",
+        "gradient_magnitude_6.0",
+        "green_mean_12.0",
+        "green_dark_contrast_12.0",
+        "green_std_12.0",
+        "green_mean_24.0",
+        "green_dark_contrast_24.0",
+        "green_std_24.0",
+        "line_dark_9",
+        "line_range_9",
+        "line_std_9",
+        "line_dark_17",
+        "line_range_17",
+        "line_std_17",
+        "line_dark_25",
+        "line_range_25",
+        "line_std_25",
+        "external_vascx_probability",
+        "external_vascx_logit",
+        "external_vascx_mean_1",
+        "external_vascx_mean_2",
+        "external_vascx_mean_4",
+        "external_vascx_min3",
+        "external_vascx_max3",
+        "x_coordinate",
+        "y_coordinate",
+        "distance_inside_fov",
+        "image_mean_red",
+        "image_std_red",
+        "image_mean_green",
+        "image_std_green",
+        "image_mean_blue",
+        "image_std_blue"
+      ]
+    },
+    "convnext": {
+      "cache_slug": "2026task4-convnext-lab-v1",
+      "weight": 0.1,
+      "checkpoint_sha256": [
+        "9ae0b801aab11e5c57065cf4579595f2af6345572c4afb84dac1aa7bde985006",
+        "5dc01e9f1191b6d66c1b05c4bc0c3042af234f807cccb62be5d94a813be2099b",
+        "11434406e0bb239061ba84b751b6e69961760252b77767dbae4f429b80981c52",
+        "23e350c1557774940d07f3f58127ac0a76e800ebbfb0ff75036154eea7c49f79",
+        "4929f8958c367273dba3f9f23ce0a135b296bbda2d8bafcbf4e1ad31a3756359"
+      ],
+      "weights_folder": "convnext_lab_v1",
+      "config_name": "2026task4-convnext-lab-v1",
+      "best_epochs": [
+        24,
+        20,
+        20,
+        28,
+        20
+      ]
+    },
+    "qtseg": {
+      "cache_slug": "2026task4-qtseg-patch512-v4",
+      "weight": 0.08100000000000002,
+      "checkpoint_sha256": [
+        "ccb531f6e08d8ce25a9bdf8289b32467ce0ed95577a9ddd7315bf0e842c1a51a",
+        "8c376939fa46da4fc716904e93100130bdcb34427cdd7fc5634452895294f4cc",
+        "c6b8692a1f24366a5ef6c81f9416d07f1cc147c610c0a08cba94c9bc8468450d",
+        "3f7841c16f84deaf5057a1314ce6aab6ed53ee253cd4c32bca9b1ab5e18029ca",
+        "4f5d1125b70c436edea0d600891672cded81610685efe07a6c932c3ba86f9c11"
+      ],
+      "weights_folder": "qtseg_patch512_v4",
+      "config_name": "2026task4-qtseg-patch512-v4",
+      "best_epochs": [
+        76,
+        88,
+        36,
+        12,
+        52
+      ]
+    },
+    "retfound": {
+      "cache_slug": "2026task4-retfound-native-v11",
+      "weight": 0.06561000000000002,
+      "checkpoint_sha256": [
+        "4c918691a662b45a0a3507b427db6cc5de9c25e635f8751bef9ae8c788a1c0f2",
+        "9e2697856362f531f0b0467ea1b8221eef8053f28cc46a113d301318d9d49a4e",
+        "a6ebc999d8019b23a64733b13a9c982c99174eceb2b5399e6be9cd41b6d16f73",
+        "68910cec8c0058f95745eecefe412031e2e881a2081faee676b6b21cb0f34e6a",
+        "aad866d686b11f220fdc2adcca07652cce61106ba05aa4f1a18db2a937cf87c9"
+      ],
+      "weights_folder": "retfound_native_v11",
+      "config_name": "2026task4-retfound-native-v11",
+      "best_epochs": [
+        44,
+        28,
+        28,
+        28,
+        32
+      ]
+    }
+  },
+  "recipe": {
+    "initial_source": "fr96",
+    "steps": [
+      {
+        "source": "pixel",
+        "alpha": 0.5
+      },
+      {
+        "source": "retfound",
+        "alpha": 0.1
+      },
+      {
+        "source": "fr96",
+        "alpha": 0.1
+      },
+      {
+        "source": "qtseg",
+        "alpha": 0.1
+      },
+      {
+        "source": "fr96",
+        "alpha": 0.1
+      },
+      {
+        "source": "convnext",
+        "alpha": 0.1
+      }
+    ]
+  },
+  "submission_sha256": "4d516ae13d88d356dfe5ecc9a17f4f6609b1383c469c7de92b6e809ef2bf5d32",
+  "converter_sha256": "ff55cef84f508febe1b86a8f9d353df699b4eaecc33805c56ee0cd1405858cec",
+  "label_sha256": {
+    "1": "95012bee9015a712d3d4014220e4f21eef78dcd942a8acc2fa321b5f8c3bbc4a",
+    "2": "e42498f4273217982cd90536d9900cc757a62c8358af0485df716fa89d04407c",
+    "3": "a048905f16a1c4ed3c62dbc32fad928b13694d17b325352fff03541f852e0045",
+    "4": "3f352ec665f77caab4fe806019169d222c1403281ccb9a9be9bf2070fa5c8e89",
+    "5": "f9fc8da936de5e21effbd66b76f33ea6c529661ad8c49b4314c6a89d907461a0",
+    "6": "ed400fb8471f272ad5e9d2693336cbedb7c437e299b918edeae8498d07c647fb",
+    "7": "b90c0fd6986a7f76861c4d4b2d07aef013f98d4b1ed28d844acbbf81c99de2c4",
+    "8": "bdad759b5f833156dcf52115ba77736706d50be3e1d6e44adaf6ef0170d1a4a8",
+    "9": "5d49c2449fcd341cb762928cad0dbcbca4e695a48643152f1acc8c5670d3add9",
+    "10": "004e501032efe825785b4711ba32fe150a17cede04d37f416961006a0cf84e3f",
+    "11": "8b91ecd3ad91b3d7111f8f22e29913eb69502f8bfd4a1339db6508d73f52b8bb",
+    "12": "164ecee52bd14ddfe5233ab88b68a1f07399f82428588bfb3866de0f93c0a9f2",
+    "13": "a38ad76f19ef68bce461b493f9987142e9185982ee5517ff97cdbb57b7a57420",
+    "14": "cada33fec4888c95e1bcbde3df7755ef1e289b63c047a57e0ff2d37d04be7168",
+    "15": "a216ebf019ad018dc897b9c22831f9c428eb51fba73379aa9463001db09846ca",
+    "16": "6e91d5b87ab1a73f6f510e86745307a5e0e5af0ca9b8e629e947cc30f4caca07",
+    "17": "3e24a5eab43676e8f9a7149984e4c7477f3b3829c4a5241d733eb43719e67967",
+    "18": "3440e0be4dce8ec83494d4e0b07a57db9575c0312023d4c98d395f5d217ff7a8",
+    "19": "64410317c2f901643da575c7871dc972c9585220466cd81545d30ced922d5159",
+    "20": "7469ed6208d32bc150bf66866fdc11d548201585ca32eec3b5130e9cffebb8a7"
+  },
+  "per_image_dice": {
+    "1": 0.8810425051242537,
+    "2": 0.8469044849424842,
+    "3": 0.8822748621605064,
+    "4": 0.8539297918608263,
+    "5": 0.7987538708353542,
+    "6": 0.8572296993349625,
+    "7": 0.8441961024344976,
+    "8": 0.8467915161736861,
+    "9": 0.870051526957396,
+    "10": 0.8556891062261018,
+    "11": 0.8821381578947368,
+    "12": 0.7756600754371928,
+    "13": 0.8663121694650753,
+    "14": 0.8833717907526945,
+    "15": 0.8645120839033288,
+    "16": 0.8434094368340944,
+    "17": 0.8476091990853347,
+    "18": 0.8577523514011441,
+    "19": 0.8219447086619005,
+    "20": 0.8722966014418125
+  }
+}

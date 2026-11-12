@@ -1,0 +1,8 @@
+# Install CUDA-compatible torch and torchvision first (see README).
+numpy
+pillow
+scikit-learn
+pandas
+huggingface-hub
+safetensors
+timm==1.0.29

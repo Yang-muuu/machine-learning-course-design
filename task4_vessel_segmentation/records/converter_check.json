@@ -1,0 +1,6 @@
+{
+  "all20_rows_exact_match": true,
+  "converter_sha256": "ff55cef84f508febe1b86a8f9d353df699b4eaecc33805c56ee0cd1405858cec",
+  "input_to_original_converter": "512x512 L, vessel255/background0; same vessel class as primary CSV",
+  "delivered_png_polarity": "vessel0/background255; explicitly inverted only for this converter comparison"
+}

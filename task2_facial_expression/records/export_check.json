@@ -1,0 +1,23 @@
+{
+  "rows": 7065,
+  "columns": [
+    "ID",
+    "Emotion"
+  ],
+  "id_order_matches_template": true,
+  "unique_ids": true,
+  "no_missing_values": true,
+  "integer_labels_in_0_5": true,
+  "prediction_counts": {
+    "Angry": 930,
+    "Fear": 841,
+    "Happy": 1839,
+    "Sad": 1199,
+    "Surprise": 799,
+    "Neutral": 1457
+  },
+  "competition_submission_performed": false,
+  "sha256": "0396023051e8c9b19de24576c6a957eaa9048944c40f5136ac2115720a00ab66",
+  "archived_export_byte_match": true,
+  "scope": "replay using six archived ResNet checkpoints and the original course template"
+}

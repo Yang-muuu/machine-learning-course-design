@@ -1,0 +1,453 @@
+from __future__ import annotations
+
+import warnings
+from functools import cached_property, lru_cache
+from typing import Tuple
+
+import numpy as np
+from matplotlib import pyplot as plt
+from scipy.ndimage import gaussian_filter
+
+from rtnls_fundusprep.transformation import ProjectiveTransform, get_affine_transform
+from rtnls_fundusprep.utils import as_cv_color, spatial_gaussian_sigma, to_uint8
+
+
+def shrink_pixels(shrink_ratio: float, radius: float) -> int:
+    return int(np.round(shrink_ratio * radius))
+
+
+def full_frame_margin(h: int, w: int) -> float:
+    return max(1.0, 0.001 * max(h, w))
+
+
+def full_frame_center_and_radius(h: int, w: int) -> tuple[tuple[float, float], float]:
+    margin = full_frame_margin(h, w)
+    cx, cy = w / 2, h / 2
+    radius = float(np.hypot(cx, cy) + margin)
+    return (cx, cy), radius
+
+
+def _rect_mirror_valid(min_y: int, max_y: int, min_x: int, max_x: int, h: int, w: int) -> bool:
+    if not (0 <= min_y < max_y <= h and 0 <= min_x < max_x <= w):
+        return False
+    half_h, half_w = h // 2, w // 2
+    return (
+        min_y <= half_h
+        and max_y >= half_h
+        and min_x <= half_w
+        and max_x >= half_w
+    )
+
+
+def validate_crop_bounds(
+    min_y: int,
+    max_y: int,
+    min_x: int,
+    max_x: int,
+    h: int,
+    w: int,
+    radius: float,
+) -> None:
+    if radius <= 0:
+        raise ValueError("radius must be positive")
+    if not _rect_mirror_valid(min_y, max_y, min_x, max_x, h, w):
+        raise ValueError(
+            f"invalid crop bounds ({min_y}, {max_y}) x ({min_x}, {max_x}) "
+            f"for image {h}x{w}"
+        )
+
+
+def _apply_rect_mirror(
+    image: np.ndarray, min_y: int, max_y: int, min_x: int, max_x: int
+) -> None:
+    h, w = image.shape[:2]
+    if min_y > 0:
+        image[:min_y] = image[2 * min_y - 1 : min_y - 1 : -1]
+    if max_y < h:
+        image[max_y:] = image[max_y : 2 * max_y - h : -1]
+    if min_x > 0:
+        image[:, :min_x] = image[:, 2 * min_x - 1 : min_x - 1 : -1]
+    if max_x < w:
+        image[:, max_x:] = image[:, max_x : 2 * max_x - w : -1]
+
+
+def _apply_circle_mirror(
+    image: np.ndarray,
+    cx: float,
+    cy: float,
+    dx: np.ndarray,
+    dy: np.ndarray,
+    r_squared_norm: np.ndarray,
+) -> None:
+    h, w = image.shape[:2]
+    mask_outside = r_squared_norm > 1
+    y0, x0 = np.where(mask_outside)
+    scale = 1 / r_squared_norm[mask_outside]
+    x1 = np.clip(np.round(cx + dx[0, x0] * scale).astype(int), 0, w - 1)
+    y1 = np.clip(np.round(cy + dy[y0, 0] * scale).astype(int), 0, h - 1)
+    image[y0, x0] = image[y1, x1]
+
+
+class CFIBounds:
+    def __init__(
+        self,
+        center: Tuple[float],
+        radius: float,
+        lines=None,
+        hw: Tuple[float] = None,
+        image: np.array = None,
+        **kwargs,
+    ):
+        lines = {} if lines is None else lines
+        self.cy = center[1]
+        self.cx = center[0]
+        self.radius = radius
+        self.lines = lines
+
+        assert image is not None or hw is not None, (
+            "Either hw or image must be provided"
+        )
+
+        self.hw = hw
+        self.image = image
+        if image is not None:
+            self.hw = image.shape[:2]
+
+        self.min_y = 0
+        self.max_y = self.hw[0]
+        self.min_x = 0
+        self.max_x = self.hw[1]
+
+        def intersects(location):
+            if location not in lines:
+                return
+            if lines[location] is None:
+                return
+            p0, p1 = lines[location]
+            intersects = line_circle_intersection(p0, p1, center, radius)
+            if len(intersects) == 2:
+                return intersects
+
+        line_bottom = intersects("bottom")
+        if line_bottom:
+            ((_, y0), (_, y1)) = line_bottom
+            self.max_y = min(self.max_y, int(np.floor(min(y0, y1))))
+        line_top = intersects("top")
+        if line_top:
+            ((_, y0), (_, y1)) = line_top
+            self.min_y = max(self.min_y, int(np.ceil(max(y0, y1))))
+
+        line_left = intersects("left")
+        if line_left:
+            ((x0, _), (x1, _)) = line_left
+            self.min_x = max(self.min_x, int(np.ceil(max(x0, x1))))
+        line_right = intersects("right")
+        if line_right:
+            ((x0, _), (x1, _)) = line_right
+            self.max_x = min(self.max_x, int(np.floor(min(x0, x1))))
+
+        h, w = self.hw
+        validate_crop_bounds(
+            self.min_y, self.max_y, self.min_x, self.max_x, h, w, self.radius
+        )
+
+    @classmethod
+    def full_frame(cls, image: np.ndarray) -> CFIBounds:
+        h, w = image.shape[:2]
+        (cx, cy), radius = full_frame_center_and_radius(h, w)
+        return cls((cx, cy), radius, {}, image=image)
+
+    def _covers_full_frame(self) -> bool:
+        h, w = self.hw
+        margin = full_frame_margin(h, w)
+        if self.min_y > margin or self.max_y < h - margin:
+            return False
+        if self.min_x > margin or self.max_x < w - margin:
+            return False
+        for x, y in ((0, 0), (w, 0), (0, h), (w, h)):
+            if np.hypot(x - self.cx, y - self.cy) > self.radius + margin:
+                return False
+        return True
+
+    def _effective_shrink_ratio(self, shrink_ratio: float) -> float:
+        if self._covers_full_frame() or shrink_ratio <= 0:
+            return 0.0
+        h, w = self.hw
+        d = shrink_pixels(shrink_ratio, self.radius)
+        if _rect_mirror_valid(
+            self.min_y + d, self.max_y - d, self.min_x + d, self.max_x - d, h, w
+        ):
+            return shrink_ratio
+        warnings.warn(
+            f"shrink_ratio={shrink_ratio} is too large for crop bounds; using no shrink",
+            UserWarning,
+            stacklevel=2,
+        )
+        return 0.0
+
+    @cached_property
+    def mask(self):
+        return self.make_binary_mask()
+
+    @cached_property
+    def contrast_enhanced_2(self):
+        return self.make_contrast_enhanced_res256(sigma_fraction=0.02)
+
+    @cached_property
+    def contrast_enhanced_5(self):
+        return self.make_contrast_enhanced_res256(sigma_fraction=0.05)
+
+    @cached_property
+    def sharpened_5(self):
+        return self.make_contrast_enhanced_res256(
+            sigma_fraction=0.05, contrast_factor=2, sharpen=True
+        )
+
+    @cached_property
+    def contrast_enhanced_10(self):
+        return self.make_contrast_enhanced_res256(sigma_fraction=0.1)
+
+    @cached_property
+    def mirrored_image(self):
+        return self.make_mirrored_image()
+
+    def make_contrast_enhanced_res256(
+        self, image=None, sigma_fraction=0.05, contrast_factor=4, sharpen=False, mirror=True, mask=True
+    ):
+        image = self.image if image is None else image
+
+        ce_resolution = 256
+        T = self.get_cropping_transform(ce_resolution)
+        bounds_warped = self.warp(T, image=image)
+        image_warped = bounds_warped.mirrored_image / 255 if mirror else bounds_warped.image / 255
+        sigma_warped = sigma_fraction * bounds_warped.radius
+        blurred_warped = gaussian_filter(
+            image_warped, spatial_gaussian_sigma(image_warped, sigma_warped)
+        )
+        blurred = T.warp_inverse(blurred_warped, self.hw)
+
+        ce = unsharp_masking(image / 255, blurred, contrast_factor, sharpen)
+
+        if mask:
+            mask = self.make_binary_mask(0.01)
+            ce = to_uint8(ce)
+            ce[~mask] = 0
+
+        return ce
+    
+
+    def make_binary_mask(self, shrink_ratio=0.01):
+        """
+        creates a binary image of the bounds (circle and rectangle)
+        """
+        h, w = self.hw
+        shrink_ratio = self._effective_shrink_ratio(shrink_ratio)
+        _, _, r_squared_norm = self.get_coordinates(shrink_ratio)
+        d = shrink_pixels(shrink_ratio, self.radius)
+
+        mask = r_squared_norm < 1
+        mask[: self.min_y + d] = False
+        mask[self.max_y - d :] = False
+        mask[:, : self.min_x + d] = False
+        mask[:, self.max_x - d :] = False
+        return mask
+
+    @lru_cache(maxsize=1)
+    def get_coordinates(self, shrink_ratio=0.01):
+        dx = np.arange(self.hw[1])[None, :] - self.cx
+        dy = np.arange(self.hw[0])[:, None] - self.cy
+
+        r = (1 - shrink_ratio) * self.radius
+        dx_norm = dx / r
+        dy_norm = dy / r
+        r_squared_norm = dx_norm**2 + dy_norm**2
+        return dx, dy, r_squared_norm
+
+    def make_mirrored_image(self, image=None, shrink_ratio=0.01):
+        """
+        mirrors pixels around the box and circle defined by bounds
+        Can be used in combination with contrast_enhance to avoid the bright boundary around the rim
+        """
+        if image is None:
+            image = self.image
+
+        mirrored_image = np.copy(image)
+        shrink_ratio = self._effective_shrink_ratio(shrink_ratio)
+        d = shrink_pixels(shrink_ratio, self.radius)
+        _apply_rect_mirror(
+            mirrored_image,
+            self.min_y + d,
+            self.max_y - d,
+            self.min_x + d,
+            self.max_x - d,
+        )
+        dx, dy, r_squared_norm = self.get_coordinates(shrink_ratio)
+        _apply_circle_mirror(mirrored_image, self.cx, self.cy, dx, dy, r_squared_norm)
+        return mirrored_image
+
+    def contrast_enhance(self, sigma=None, contrast_factor=4):
+        if sigma is None:
+            sigma = 0.05 * self.radius
+        image = self.mirrored_image / 255
+        blurred = gaussian_filter(image, spatial_gaussian_sigma(image, sigma))
+        ce = unsharp_masking(image, blurred, contrast_factor)
+        return to_uint8(ce)
+
+    def get_cropping_transform(self, target_diameter, patch_size=None):
+        if patch_size is None:
+            patch_size = target_diameter
+
+        scale = target_diameter / (2 * self.radius)
+        in_size = self.hw
+        center = self.cy, self.cx
+        return get_affine_transform(in_size, patch_size, scale=scale, center=center)
+
+    def warp(self, transform: ProjectiveTransform, image=None):
+        if image is None:
+            image = self.image
+        cx_warped, cy_warped = transform.apply([[self.cx, self.cy]])[0]
+        radius_warped = self.radius * transform.scale
+        image_warped = transform.warp(image) if image is not None else None
+        lines_warped = {k: transform.apply(v) for k, v in self.lines.items()}
+        return CFIBounds(
+            (cx_warped, cy_warped),
+            radius_warped,
+            lines_warped,
+            hw=transform.out_size,
+            image=image_warped,
+        )
+
+    def crop(self, target_diameter):
+        T = self.get_cropping_transform(target_diameter)
+        return T, self.warp(T)
+
+    def _repr_markdown_(self):
+        result = f"""
+        #### CFIBounds:
+
+        - Center: ({self.cx}, {self.cy})
+        - Radius: {self.radius}
+        - Top: {self.min_y}
+        - Bottom: {self.max_y}
+        - Left: {self.min_x}
+        - Right: {self.max_x}
+        """
+        return result.strip()
+
+    def plot(self, ax=None):
+        if ax is None:
+            fig, ax = plt.subplots()
+        else:
+            fig = ax.get_figure()
+
+        ax.imshow(self.image)
+        ax.scatter(self.cx, self.cy, c="w", s=2)
+        ax.add_artist(
+            plt.Circle((self.cx, self.cy), self.radius, fill=False, color="w")
+        )
+        for k in ["top", "bottom", "left", "right"]:
+            if k in self.lines:
+                p0, p1 = self.lines[k]
+                ax.plot([p0[0], p1[0]], [p0[1], p1[1]], c="w")
+
+        ax.set_xlim(0, self.hw[1])
+        ax.set_ylim(self.hw[0], 0)
+        return fig, ax
+
+    def make_bounds_image(self, ax=None, fig=None):
+        import cv2
+
+        im = self.image.copy()
+        color = as_cv_color(im)
+
+        cv2.circle(
+            im,
+            (round(self.cx), round(self.cy)),
+            radius=0,
+            color=color,
+            thickness=-1,
+        )
+        cv2.circle(
+            im,
+            (round(self.cx), round(self.cy)),
+            radius=round(self.radius),
+            color=color,
+            thickness=2,
+        )
+        for k in ["top", "bottom", "left", "right"]:
+            if k in self.lines:
+                p0, p1 = self.lines[k]
+                cv2.line(
+                    im,
+                    (round(p0[0]), round(p0[1])),
+                    (round(p1[0]), round(p1[1])),
+                    color,
+                    thickness=2,
+                )
+
+        return im
+
+    def to_dict(self):
+        return {
+            "hw": self.hw,
+            "center": (self.cx, self.cy),
+            "radius": self.radius,
+            "lines": {
+                k: (v.tolist() if isinstance(v, np.ndarray) else list(v))
+                for k, v in self.lines.items()
+            },
+        }
+
+    def to_dict_all(self):
+        return {
+            "hw": self.hw,
+            "center": (self.cx, self.cy),
+            "radius": self.radius,
+            "lines": {
+                k: (v.tolist() if isinstance(v, np.ndarray) else list(v))
+                for k, v in self.lines.items()
+            },
+            "min_y": self.min_y,
+            "max_y": self.max_y,
+            "min_x": self.min_x,
+            "max_x": self.max_x,
+        }
+
+    @classmethod
+    def from_dict(cls, image, d):
+        return CFIBounds(
+            (d["center"][0], d["center"][1]), d["radius"], d["lines"], image=image
+        )
+
+
+def line_circle_intersection(P0, P1, C, r):
+    # Convert inputs to numpy arrays for vector operations
+    P0, P1, C = np.array(P0), np.array(P1), np.array(C)
+
+    # Define the line as a vector equation
+    d = P1 - P0
+
+    a = d.dot(d)
+    if a == 0:
+        return []
+
+    b = 2 * d.dot(P0 - C)
+    c = P0.dot(P0) + C.dot(C) - 2 * P0.dot(C) - r**2
+
+    discriminant = b**2 - 4 * a * c
+    if discriminant < 0:
+        # The line and circle do not intersect
+        return []
+    else:
+        # The line and circle intersect at one or two points
+        sqrt_discriminant = np.sqrt(discriminant)
+        t = [(-b + sqrt_discriminant) / (2 * a), (-b - sqrt_discriminant) / (2 * a)]
+        return [P0 + ti * d for ti in t]
+
+
+def unsharp_masking(image, blurred, contrast_factor=4, sharpen=False):
+    if sharpen:
+        return np.clip(contrast_factor * (image - blurred) + image, 0, 1)
+    else:
+        return np.clip(contrast_factor * (image - blurred) + 0.5, 0, 1)
+

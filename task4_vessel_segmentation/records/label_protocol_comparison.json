@@ -1,0 +1,34 @@
+{
+  "nearest128": {
+    "vessel_fraction": 0.08632545471191407,
+    "label_dice_vs_current": 1.0,
+    "oof_at_delivered_threshold": 0.8234303145603828,
+    "oof_at_0_5": 0.8225376196398063,
+    "best_uniform_threshold": 0.425,
+    "oof_at_best_threshold": 0.8234303145603828
+  },
+  "bilinear128": {
+    "vessel_fraction": 0.08599185943603516,
+    "label_dice_vs_current": 0.970493816642968,
+    "oof_at_delivered_threshold": 0.8188778506922839,
+    "oof_at_0_5": 0.8180615490991047,
+    "best_uniform_threshold": 0.425,
+    "oof_at_best_threshold": 0.8188778506922839
+  },
+  "bilinear_nonzero": {
+    "vessel_fraction": 0.1286722183227539,
+    "label_dice_vs_current": 0.8026188961331936,
+    "oof_at_delivered_threshold": 0.7608394189407723,
+    "oof_at_0_5": 0.7472829972454171,
+    "best_uniform_threshold": 0.2,
+    "oof_at_best_threshold": 0.7978568585418491
+  },
+  "nearest_nonzero": {
+    "vessel_fraction": 0.08632545471191407,
+    "label_dice_vs_current": 1.0,
+    "oof_at_delivered_threshold": 0.8234303145603828,
+    "oof_at_0_5": 0.8225376196398063,
+    "best_uniform_threshold": 0.425,
+    "oof_at_best_threshold": 0.8234303145603828
+  }
+}

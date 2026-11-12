@@ -1,0 +1,5 @@
+{
+  "enum": "ConvNeXt_Tiny_Weights.IMAGENET1K_V1",
+  "url": "https://download.pytorch.org/models/convnext_tiny-983f1562.pth",
+  "dataset": "ImageNet-1K classification; no task-supervised retinal weights"
+}

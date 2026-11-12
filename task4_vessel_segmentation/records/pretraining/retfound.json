@@ -1,0 +1,9 @@
+{
+  "enum": "RETFound-Green v0.1 ViT-S/14 reg4",
+  "url": "https://github.com/justinengelmann/RETFound_Green/releases/download/v0.1/retfoundgreen_statedict.pth",
+  "sha256": "431de5dbc1bebbb32f60e2c0bcf8daa4f8bcbf06f7cb1e1dc97ec589713942e1",
+  "dataset": "75,000 public fundus photos from AIROGS, DDR and ODIR; self-supervised token reconstruction",
+  "supervision": "no released vessel head; this experiment trains a new decoder on each fold's 16 images",
+  "normalization": "RGB [0,1] -> [-1,1], official mean/std .5; dynamic positions from official 392 grid",
+  "license": "author CNCRL non-commercial research; RETFOUND_GREEN_LICENSE.txt"
+}

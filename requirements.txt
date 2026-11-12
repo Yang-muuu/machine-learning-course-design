@@ -1,0 +1,19 @@
+# 首先安装与本机 GPU/CUDA 驱动匹配的 PyTorch 和 torchvision（参考记录版本：torch 2.11.0+cu128, torchvision 0.26.0）
+# 随后运行：python -m pip install -r requirements.txt
+
+numpy>=2.0,<3
+scipy>=1.13,<2
+pandas>=2.2,<4
+Pillow>=10,<14
+scikit-learn==1.7.2
+joblib>=1.4,<2
+threadpoolctl>=3,<4
+opencv-python-headless>=4.10,<5
+timm==1.0.29
+safetensors>=0.4,<1
+huggingface-hub>=0.24
+matplotlib>=3.8,<4
+tqdm>=4.66,<5
+einops>=0.8,<0.9
+gdown>=5.2,<6
+packaging>=24

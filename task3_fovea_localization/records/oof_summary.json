@@ -1,0 +1,68 @@
+{
+  "training_rows": 80,
+  "image_hash_groups": 79,
+  "fold_sizes": [
+    15,
+    16,
+    17,
+    16,
+    16
+  ],
+  "training_label_file_sha256": "237290f501488f09e1132268f44b12f858d8751dfeee96f94103050ed3c1d70e",
+  "branches": {
+    "hrnet_luma40": {
+      "x_rmse": 45.39293993476979,
+      "y_rmse": 18.73095329839339,
+      "oof_rmse": 34.72295787651314,
+      "median_euclidean_px": 9.887578166073837,
+      "worst_image_id": 49,
+      "worst_euclidean_px": 266.6071313913722,
+      "worst_squared_error_share": 0.3684598020795111
+    },
+    "hrnet_rgb80": {
+      "x_rmse": 77.41637852533844,
+      "y_rmse": 27.228587431956775,
+      "oof_rmse": 58.02883609688461,
+      "median_euclidean_px": 9.205386780534214,
+      "worst_image_id": 70,
+      "worst_euclidean_px": 609.3963299048172,
+      "worst_squared_error_share": 0.6892741102514536
+    },
+    "rfm_cv30": {
+      "x_rmse": 22.389095035584035,
+      "y_rmse": 13.919643915930964,
+      "oof_rmse": 18.641728236120272,
+      "median_euclidean_px": 9.21484387890277,
+      "worst_image_id": 49,
+      "worst_euclidean_px": 137.53769149281922,
+      "worst_squared_error_share": 0.34021317953121477
+    },
+    "rfm_cv80": {
+      "x_rmse": 47.2879224113494,
+      "y_rmse": 23.23915943416152,
+      "oof_rmse": 37.25725524772443,
+      "median_euclidean_px": 8.953620917570841,
+      "worst_image_id": 49,
+      "worst_euclidean_px": 434.2277542297972,
+      "worst_squared_error_share": 0.8489721819361448
+    },
+    "visionfm_cv20": {
+      "x_rmse": 22.33293677260083,
+      "y_rmse": 12.227721891205718,
+      "oof_rmse": 18.003850248455997,
+      "median_euclidean_px": 9.811395674544961,
+      "worst_image_id": 49,
+      "worst_euclidean_px": 136.54423356402125,
+      "worst_squared_error_share": 0.3594975720342351
+    }
+  },
+  "equal_fusion": {
+    "x_rmse": 21.150758760887282,
+    "y_rmse": 12.48166509375995,
+    "oof_rmse": 17.365865363897587,
+    "median_euclidean_px": 8.216517454758527,
+    "worst_image_id": 49,
+    "worst_euclidean_px": 137.04052416014693,
+    "worst_squared_error_share": 0.3892110665490102
+  }
+}

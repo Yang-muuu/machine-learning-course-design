@@ -1,0 +1,13 @@
+{
+  "prepare_data.py": "bbf5871f1ff942d9bf17ba31bb7426bebadd483a81172a728f84d681738f246f",
+  "fovea.py": "0954d4d650ecdbfb0058f378fd539f49bd587e6a4ee4e93bd0b4c268e3832507",
+  "spatial_models.py": "246e396ed91b24a2f0f37d587b60e7bdb10f03c701fb7c1bec298dbf3d208e1d",
+  "next_models.py": "82defc6c14b5ce919b24b3562011c743181ade622f3007a13bf4fd8a0504ea08",
+  "next_results.py": "ecff33a6afb03ce102f62e7f4479230a0b2b657f2b0a7a26a303521f3f99496a",
+  "run_next_training.py": "4a448037a99fdaa0040d68c9175144edb8eef9bfd04ff123cf2db8f3f17bac89",
+  "run_spatial_training.py": "a720ea1059ad12de7e9cf005f95fae8b030af946e2fa3542bc47959862c79f2a",
+  "run_followup_training.py": "b3f6a428931ea328f8d8704bee82f3123d9b9b477e5f136c2a1598eea0a810d8",
+  "contrast_image_bank.py": "28e7d462a1cd4dcfd28a1d47960cf54489c7c1f11177948a31985aeb7acd6f54",
+  "contrast_models.py": "d23219c394d0691ccccf9d87d85fee2800610ac62054c7e76b29d76ee16e88f1",
+  "run_contrast_training.py": "2dc49486079f78ea0e6c1dec753bc98900a67fccb72e63779dad1b3617da14b8"
+}

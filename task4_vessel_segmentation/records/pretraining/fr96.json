@@ -1,0 +1,9 @@
+{
+  "enum": "FR-UNet official CHASEDB1 epoch40",
+  "url": "https://raw.githubusercontent.com/lseventeen/FR-UNet/master/pretrained_weights/CHASEDB1/checkpoint-epoch40.pth",
+  "source_repository": "https://github.com/lseventeen/FR-UNet",
+  "upstream_model_blob": "bc464f5fe3e125f43c5327cd0ec51e5ecce6143d",
+  "dataset": "CHASEDB1 training subjects 01..10; no DRIVE supervised checkpoint",
+  "normalization": "grayscale per-image min-max to [0,1] (upstream affine Normalize cancels)",
+  "license": "MIT; FR_UNET_LICENSE.txt"
+}

@@ -1,0 +1,19 @@
+{
+  "n_images": 20,
+  "scope": "same saved native FR96 OOF scores, original converter labels, same FOV and no extra morphology",
+  "nearest_score_first": {
+    "dice_at_0_5": 0.7554541569684021,
+    "grid_best_dice": 0.7904267846366159,
+    "grid_threshold": 0.2
+  },
+  "bilinear_score_first": {
+    "dice_at_0_5": 0.7650711344294121,
+    "grid_best_dice": 0.8304213080049527,
+    "grid_threshold": 0.2
+  },
+  "native_threshold_first": {
+    "dice_at_0_5": 0.8512686797613547,
+    "grid_best_dice": 0.8513022072566953,
+    "grid_threshold": 0.475
+  }
+}

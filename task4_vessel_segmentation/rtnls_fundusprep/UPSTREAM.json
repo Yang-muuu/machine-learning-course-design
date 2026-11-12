@@ -1,0 +1,38 @@
+{
+  "repository": "https://github.com/Eyened/retinalysis-fundusprep",
+  "license": "AGPL-3.0",
+  "files": [
+    {
+      "path": "rtnls_fundusprep/preprocessor.py",
+      "git_blob_sha": "d892088a09df0200e1d4df01fccaf79eb3cf1a76"
+    },
+    {
+      "path": "rtnls_fundusprep/cfi_bounds.py",
+      "git_blob_sha": "c2c1903292116fa3c72f7716053442359e1962a3"
+    },
+    {
+      "path": "rtnls_fundusprep/mask_extraction.py",
+      "git_blob_sha": "d1712b6625b3314200486d0414aaa61db18949f3"
+    },
+    {
+      "path": "rtnls_fundusprep/transformation.py",
+      "git_blob_sha": "ab0655df4399f124ca01c7403891ebd4586d280a"
+    },
+    {
+      "path": "rtnls_fundusprep/__init__.py",
+      "git_blob_sha": "02366bdb58a825c9420ef9061801cf96b167bc5a"
+    },
+    {
+      "path": "rtnls_fundusprep/circle_fit.py",
+      "git_blob_sha": "ba22de17b40856763749845137a0fd6baf7ad847"
+    },
+    {
+      "path": "rtnls_fundusprep/utils.py",
+      "git_blob_sha": "375eecc7f2e30eabcee51f7fc8917d69e2d61bff"
+    },
+    {
+      "path": "rtnls_fundusprep/LICENSE",
+      "git_blob_sha": "0ad25db4bd1d86c452db3f9602ccdbe172438f52"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "2026task4-convnext-lab-v1",
+  "encoder": "convnext_tiny",
+  "preprocess": "lab_clahe",
+  "size": 608,
+  "patch": 256,
+  "batch": 8,
+  "epochs": 100,
+  "steps": 40,
+  "lr": 0.001,
+  "encoder_lr_factor": 0.1,
+  "weight_decay": 0.0001,
+  "dice_weight": 0.6,
+  "ema_decay": 0.99,
+  "validate_every": 4,
+  "seed": 42,
+  "clahe_clip": 2.0,
+  "tta": 4,
+  "dropout": 0.05,
+  "freeze_encoder_bn": false,
+  "loss": "bce_dice"
+}

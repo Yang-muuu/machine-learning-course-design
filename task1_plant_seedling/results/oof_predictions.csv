@@ -1,0 +1,501 @@
+sample_index,true_class,pred_class,confidence
+0,Black-grass,Black-grass,0.921848476
+1,Black-grass,Black-grass,0.920313537
+2,Black-grass,Black-grass,0.827780187
+3,Black-grass,Black-grass,0.930681765
+4,Black-grass,Black-grass,0.92558825
+5,Black-grass,Black-grass,0.933958709
+6,Black-grass,Black-grass,0.953591943
+7,Black-grass,Loose Silky-bent,0.861234128
+8,Black-grass,Black-grass,0.601706386
+9,Black-grass,Black-grass,0.956966102
+10,Black-grass,Black-grass,0.696281374
+11,Black-grass,Black-grass,0.948139131
+12,Black-grass,Black-grass,0.946301401
+13,Black-grass,Black-grass,0.949770093
+14,Black-grass,Black-grass,0.888076484
+15,Black-grass,Black-grass,0.963324308
+16,Black-grass,Black-grass,0.899101615
+17,Black-grass,Black-grass,0.922387302
+18,Black-grass,Black-grass,0.968183577
+19,Black-grass,Black-grass,0.931489825
+20,Black-grass,Black-grass,0.911625385
+21,Black-grass,Black-grass,0.899660587
+22,Black-grass,Black-grass,0.740970612
+23,Black-grass,Black-grass,0.936865151
+24,Black-grass,Black-grass,0.903977454
+25,Black-grass,Black-grass,0.687795162
+26,Black-grass,Black-grass,0.916405559
+27,Black-grass,Black-grass,0.457015753
+28,Black-grass,Black-grass,0.949952543
+29,Black-grass,Black-grass,0.907697201
+30,Black-grass,Black-grass,0.975996852
+31,Black-grass,Black-grass,0.540192842
+32,Black-grass,Black-grass,0.918819427
+33,Black-grass,Black-grass,0.926962435
+34,Black-grass,Black-grass,0.92662251
+35,Black-grass,Black-grass,0.887019694
+36,Black-grass,Black-grass,0.789294302
+37,Black-grass,Black-grass,0.80787468
+38,Black-grass,Black-grass,0.916117668
+39,Black-grass,Black-grass,0.906244934
+40,Black-grass,Black-grass,0.548499942
+41,Black-grass,Black-grass,0.4723593
+42,Black-grass,Black-grass,0.693551004
+43,Black-grass,Black-grass,0.954683065
+44,Black-grass,Black-grass,0.378941596
+45,Black-grass,Black-grass,0.886353791
+46,Black-grass,Black-grass,0.701334357
+47,Black-grass,Black-grass,0.935114443
+48,Black-grass,Black-grass,0.856537879
+49,Black-grass,Black-grass,0.905407846
+50,Black-grass,Black-grass,0.948712051
+51,Black-grass,Black-grass,0.937874436
+52,Black-grass,Black-grass,0.76750356
+53,Black-grass,Black-grass,0.920483768
+54,Black-grass,Black-grass,0.954434514
+55,Black-grass,Black-grass,0.698199987
+56,Black-grass,Black-grass,0.491954416
+57,Black-grass,Black-grass,0.925902605
+58,Black-grass,Black-grass,0.892585158
+59,Black-grass,Loose Silky-bent,0.723894358
+60,Black-grass,Black-grass,0.761995673
+61,Black-grass,Black-grass,0.929079652
+62,Black-grass,Black-grass,0.912893772
+63,Black-grass,Black-grass,0.866624415
+64,Black-grass,Black-grass,0.921158552
+65,Black-grass,Black-grass,0.946353614
+66,Black-grass,Black-grass,0.777153552
+67,Black-grass,Black-grass,0.924291372
+68,Black-grass,Black-grass,0.945583403
+69,Black-grass,Black-grass,0.665909052
+70,Black-grass,Black-grass,0.919520319
+71,Black-grass,Black-grass,0.933758199
+72,Black-grass,Black-grass,0.935716629
+73,Black-grass,Black-grass,0.895677865
+74,Black-grass,Black-grass,0.872041821
+75,Black-grass,Black-grass,0.760442317
+76,Black-grass,Black-grass,0.953244209
+77,Black-grass,Black-grass,0.897773862
+78,Black-grass,Black-grass,0.46039477
+79,Black-grass,Loose Silky-bent,0.931653917
+80,Black-grass,Black-grass,0.942911029
+81,Black-grass,Black-grass,0.931043804
+82,Black-grass,Loose Silky-bent,0.388526678
+83,Black-grass,Black-grass,0.912609279
+84,Black-grass,Black-grass,0.805945516
+85,Black-grass,Black-grass,0.939580977
+86,Black-grass,Black-grass,0.866656721
+87,Black-grass,Loose Silky-bent,0.916298568
+88,Black-grass,Black-grass,0.867791772
+89,Black-grass,Black-grass,0.921374917
+90,Black-grass,Black-grass,0.939767182
+91,Black-grass,Black-grass,0.915415764
+92,Black-grass,Black-grass,0.904444993
+93,Black-grass,Black-grass,0.65398109
+94,Black-grass,Black-grass,0.898165762
+95,Black-grass,Black-grass,0.952147961
+96,Black-grass,Black-grass,0.928621233
+97,Black-grass,Loose Silky-bent,0.911863327
+98,Black-grass,Black-grass,0.927561283
+99,Black-grass,Black-grass,0.884105623
+100,Common wheat,Common wheat,0.810771048
+101,Common wheat,Common wheat,0.931538463
+102,Common wheat,Common wheat,0.944042444
+103,Common wheat,Common wheat,0.947103858
+104,Common wheat,Common wheat,0.948248804
+105,Common wheat,Common wheat,0.938183129
+106,Common wheat,Common wheat,0.861001551
+107,Common wheat,Common wheat,0.925207675
+108,Common wheat,Common wheat,0.950653672
+109,Common wheat,Common wheat,0.934606254
+110,Common wheat,Common wheat,0.930282652
+111,Common wheat,Common wheat,0.938916028
+112,Common wheat,Common wheat,0.939224243
+113,Common wheat,Common wheat,0.926869869
+114,Common wheat,Common wheat,0.941579521
+115,Common wheat,Common wheat,0.941265166
+116,Common wheat,Common wheat,0.92875129
+117,Common wheat,Common wheat,0.934516072
+118,Common wheat,Common wheat,0.952632129
+119,Common wheat,Common wheat,0.936697423
+120,Common wheat,Common wheat,0.94087559
+121,Common wheat,Common wheat,0.927483082
+122,Common wheat,Common wheat,0.949435353
+123,Common wheat,Common wheat,0.934290469
+124,Common wheat,Common wheat,0.926867306
+125,Common wheat,Common wheat,0.90495801
+126,Common wheat,Black-grass,0.930298448
+127,Common wheat,Common wheat,0.9483549
+128,Common wheat,Common wheat,0.94725734
+129,Common wheat,Common wheat,0.948265851
+130,Common wheat,Common wheat,0.948915005
+131,Common wheat,Common wheat,0.951502502
+132,Common wheat,Common wheat,0.952154934
+133,Common wheat,Black-grass,0.817298591
+134,Common wheat,Common wheat,0.939004004
+135,Common wheat,Common wheat,0.948109686
+136,Common wheat,Common wheat,0.937260628
+137,Common wheat,Common wheat,0.957657337
+138,Common wheat,Common wheat,0.947822928
+139,Common wheat,Common wheat,0.929972649
+140,Common wheat,Common wheat,0.943014801
+141,Common wheat,Common wheat,0.859775782
+142,Common wheat,Common wheat,0.887705743
+143,Common wheat,Common wheat,0.930715442
+144,Common wheat,Common wheat,0.931268334
+145,Common wheat,Common wheat,0.950999439
+146,Common wheat,Common wheat,0.934877574
+147,Common wheat,Common wheat,0.94385612
+148,Common wheat,Common wheat,0.925807834
+149,Common wheat,Common wheat,0.945173621
+150,Common wheat,Common wheat,0.938361168
+151,Common wheat,Common wheat,0.850777745
+152,Common wheat,Common wheat,0.918578446
+153,Common wheat,Common wheat,0.933638155
+154,Common wheat,Common wheat,0.930758059
+155,Common wheat,Common wheat,0.92878747
+156,Common wheat,Common wheat,0.924527526
+157,Common wheat,Common wheat,0.889445066
+158,Common wheat,Common wheat,0.933172941
+159,Common wheat,Common wheat,0.945477247
+160,Common wheat,Common wheat,0.905441344
+161,Common wheat,Common wheat,0.935292423
+162,Common wheat,Common wheat,0.948813379
+163,Common wheat,Sugar beet,0.860391736
+164,Common wheat,Common wheat,0.947832942
+165,Common wheat,Common wheat,0.950967908
+166,Common wheat,Common wheat,0.9493348
+167,Common wheat,Common wheat,0.934361696
+168,Common wheat,Common wheat,0.918319285
+169,Common wheat,Common wheat,0.934699893
+170,Common wheat,Common wheat,0.939543426
+171,Common wheat,Common wheat,0.947159052
+172,Common wheat,Common wheat,0.939561307
+173,Common wheat,Common wheat,0.942487717
+174,Common wheat,Common wheat,0.897929072
+175,Common wheat,Common wheat,0.944087863
+176,Common wheat,Common wheat,0.956461787
+177,Common wheat,Common wheat,0.936809063
+178,Common wheat,Common wheat,0.93034035
+179,Common wheat,Common wheat,0.947133183
+180,Common wheat,Common wheat,0.938220501
+181,Common wheat,Common wheat,0.915256441
+182,Common wheat,Common wheat,0.930958271
+183,Common wheat,Common wheat,0.944129944
+184,Common wheat,Common wheat,0.925654531
+185,Common wheat,Common wheat,0.945387006
+186,Common wheat,Common wheat,0.944753408
+187,Common wheat,Common wheat,0.923686326
+188,Common wheat,Common wheat,0.922711372
+189,Common wheat,Common wheat,0.937330902
+190,Common wheat,Common wheat,0.930239856
+191,Common wheat,Common wheat,0.789223731
+192,Common wheat,Common wheat,0.937769115
+193,Common wheat,Common wheat,0.940911412
+194,Common wheat,Common wheat,0.954467177
+195,Common wheat,Common wheat,0.944145918
+196,Common wheat,Common wheat,0.935324252
+197,Common wheat,Common wheat,0.928802788
+198,Common wheat,Common wheat,0.935732067
+199,Common wheat,Common wheat,0.951391816
+200,Loose Silky-bent,Loose Silky-bent,0.902081668
+201,Loose Silky-bent,Loose Silky-bent,0.94812423
+202,Loose Silky-bent,Loose Silky-bent,0.945593238
+203,Loose Silky-bent,Loose Silky-bent,0.886816263
+204,Loose Silky-bent,Loose Silky-bent,0.937176704
+205,Loose Silky-bent,Loose Silky-bent,0.910056651
+206,Loose Silky-bent,Loose Silky-bent,0.933072805
+207,Loose Silky-bent,Loose Silky-bent,0.894250572
+208,Loose Silky-bent,Black-grass,0.518935323
+209,Loose Silky-bent,Loose Silky-bent,0.903533161
+210,Loose Silky-bent,Loose Silky-bent,0.897464812
+211,Loose Silky-bent,Loose Silky-bent,0.860408425
+212,Loose Silky-bent,Loose Silky-bent,0.934080303
+213,Loose Silky-bent,Loose Silky-bent,0.931575358
+214,Loose Silky-bent,Loose Silky-bent,0.934256732
+215,Loose Silky-bent,Loose Silky-bent,0.943638563
+216,Loose Silky-bent,Loose Silky-bent,0.909508407
+217,Loose Silky-bent,Loose Silky-bent,0.911519051
+218,Loose Silky-bent,Loose Silky-bent,0.502022743
+219,Loose Silky-bent,Loose Silky-bent,0.929484606
+220,Loose Silky-bent,Loose Silky-bent,0.939862967
+221,Loose Silky-bent,Loose Silky-bent,0.914960623
+222,Loose Silky-bent,Loose Silky-bent,0.434347183
+223,Loose Silky-bent,Loose Silky-bent,0.944529653
+224,Loose Silky-bent,Loose Silky-bent,0.944519997
+225,Loose Silky-bent,Loose Silky-bent,0.930676281
+226,Loose Silky-bent,Loose Silky-bent,0.800440073
+227,Loose Silky-bent,Loose Silky-bent,0.959249079
+228,Loose Silky-bent,Loose Silky-bent,0.804427087
+229,Loose Silky-bent,Loose Silky-bent,0.937707782
+230,Loose Silky-bent,Black-grass,0.904270649
+231,Loose Silky-bent,Loose Silky-bent,0.883143067
+232,Loose Silky-bent,Loose Silky-bent,0.937911689
+233,Loose Silky-bent,Loose Silky-bent,0.938257039
+234,Loose Silky-bent,Loose Silky-bent,0.913607299
+235,Loose Silky-bent,Loose Silky-bent,0.906653047
+236,Loose Silky-bent,Loose Silky-bent,0.917186439
+237,Loose Silky-bent,Loose Silky-bent,0.945620179
+238,Loose Silky-bent,Loose Silky-bent,0.928163409
+239,Loose Silky-bent,Loose Silky-bent,0.906776965
+240,Loose Silky-bent,Loose Silky-bent,0.89661634
+241,Loose Silky-bent,Loose Silky-bent,0.942006111
+242,Loose Silky-bent,Loose Silky-bent,0.870701551
+243,Loose Silky-bent,Loose Silky-bent,0.938421488
+244,Loose Silky-bent,Loose Silky-bent,0.561672211
+245,Loose Silky-bent,Loose Silky-bent,0.925701082
+246,Loose Silky-bent,Loose Silky-bent,0.926503181
+247,Loose Silky-bent,Loose Silky-bent,0.924240351
+248,Loose Silky-bent,Loose Silky-bent,0.829203069
+249,Loose Silky-bent,Loose Silky-bent,0.947340786
+250,Loose Silky-bent,Loose Silky-bent,0.917812884
+251,Loose Silky-bent,Loose Silky-bent,0.861393631
+252,Loose Silky-bent,Loose Silky-bent,0.897603273
+253,Loose Silky-bent,Loose Silky-bent,0.925686479
+254,Loose Silky-bent,Loose Silky-bent,0.946696222
+255,Loose Silky-bent,Black-grass,0.924196362
+256,Loose Silky-bent,Black-grass,0.756668448
+257,Loose Silky-bent,Loose Silky-bent,0.837432742
+258,Loose Silky-bent,Loose Silky-bent,0.923654497
+259,Loose Silky-bent,Loose Silky-bent,0.931616545
+260,Loose Silky-bent,Loose Silky-bent,0.939328134
+261,Loose Silky-bent,Loose Silky-bent,0.855529308
+262,Loose Silky-bent,Loose Silky-bent,0.902798653
+263,Loose Silky-bent,Loose Silky-bent,0.918244779
+264,Loose Silky-bent,Loose Silky-bent,0.936641812
+265,Loose Silky-bent,Loose Silky-bent,0.744113684
+266,Loose Silky-bent,Loose Silky-bent,0.505619407
+267,Loose Silky-bent,Loose Silky-bent,0.917687774
+268,Loose Silky-bent,Black-grass,0.873642445
+269,Loose Silky-bent,Loose Silky-bent,0.796965122
+270,Loose Silky-bent,Loose Silky-bent,0.872476995
+271,Loose Silky-bent,Loose Silky-bent,0.937436581
+272,Loose Silky-bent,Loose Silky-bent,0.929238856
+273,Loose Silky-bent,Loose Silky-bent,0.909436703
+274,Loose Silky-bent,Loose Silky-bent,0.685495257
+275,Loose Silky-bent,Loose Silky-bent,0.923080981
+276,Loose Silky-bent,Loose Silky-bent,0.93731159
+277,Loose Silky-bent,Loose Silky-bent,0.917227626
+278,Loose Silky-bent,Loose Silky-bent,0.918977559
+279,Loose Silky-bent,Loose Silky-bent,0.734504104
+280,Loose Silky-bent,Loose Silky-bent,0.790785611
+281,Loose Silky-bent,Loose Silky-bent,0.928723812
+282,Loose Silky-bent,Loose Silky-bent,0.851687133
+283,Loose Silky-bent,Loose Silky-bent,0.928273261
+284,Loose Silky-bent,Loose Silky-bent,0.8795802
+285,Loose Silky-bent,Loose Silky-bent,0.915443122
+286,Loose Silky-bent,Loose Silky-bent,0.937859893
+287,Loose Silky-bent,Loose Silky-bent,0.89627701
+288,Loose Silky-bent,Loose Silky-bent,0.454728812
+289,Loose Silky-bent,Loose Silky-bent,0.851360142
+290,Loose Silky-bent,Loose Silky-bent,0.960106373
+291,Loose Silky-bent,Loose Silky-bent,0.844221175
+292,Loose Silky-bent,Loose Silky-bent,0.925819278
+293,Loose Silky-bent,Loose Silky-bent,0.932917953
+294,Loose Silky-bent,Loose Silky-bent,0.956692398
+295,Loose Silky-bent,Loose Silky-bent,0.916940153
+296,Loose Silky-bent,Loose Silky-bent,0.87052238
+297,Loose Silky-bent,Black-grass,0.508332908
+298,Loose Silky-bent,Loose Silky-bent,0.933481872
+299,Loose Silky-bent,Loose Silky-bent,0.805043757
+300,Scentless Mayweed,Scentless Mayweed,0.919081748
+301,Scentless Mayweed,Scentless Mayweed,0.949773848
+302,Scentless Mayweed,Scentless Mayweed,0.935185075
+303,Scentless Mayweed,Scentless Mayweed,0.943371773
+304,Scentless Mayweed,Scentless Mayweed,0.927330732
+305,Scentless Mayweed,Scentless Mayweed,0.939520359
+306,Scentless Mayweed,Scentless Mayweed,0.947120905
+307,Scentless Mayweed,Scentless Mayweed,0.939688027
+308,Scentless Mayweed,Scentless Mayweed,0.952144265
+309,Scentless Mayweed,Scentless Mayweed,0.940683603
+310,Scentless Mayweed,Scentless Mayweed,0.93620801
+311,Scentless Mayweed,Scentless Mayweed,0.941278398
+312,Scentless Mayweed,Scentless Mayweed,0.93172437
+313,Scentless Mayweed,Scentless Mayweed,0.956072211
+314,Scentless Mayweed,Scentless Mayweed,0.952237666
+315,Scentless Mayweed,Scentless Mayweed,0.94125545
+316,Scentless Mayweed,Scentless Mayweed,0.938616991
+317,Scentless Mayweed,Scentless Mayweed,0.930228829
+318,Scentless Mayweed,Scentless Mayweed,0.934223413
+319,Scentless Mayweed,Scentless Mayweed,0.936146855
+320,Scentless Mayweed,Scentless Mayweed,0.94479692
+321,Scentless Mayweed,Scentless Mayweed,0.964374006
+322,Scentless Mayweed,Scentless Mayweed,0.93388623
+323,Scentless Mayweed,Scentless Mayweed,0.933375001
+324,Scentless Mayweed,Scentless Mayweed,0.937397063
+325,Scentless Mayweed,Scentless Mayweed,0.936409295
+326,Scentless Mayweed,Scentless Mayweed,0.930854559
+327,Scentless Mayweed,Scentless Mayweed,0.939824581
+328,Scentless Mayweed,Scentless Mayweed,0.935150027
+329,Scentless Mayweed,Scentless Mayweed,0.934650719
+330,Scentless Mayweed,Scentless Mayweed,0.959090114
+331,Scentless Mayweed,Scentless Mayweed,0.931788206
+332,Scentless Mayweed,Scentless Mayweed,0.935426056
+333,Scentless Mayweed,Scentless Mayweed,0.921908438
+334,Scentless Mayweed,Scentless Mayweed,0.798486292
+335,Scentless Mayweed,Scentless Mayweed,0.949022591
+336,Scentless Mayweed,Scentless Mayweed,0.929911613
+337,Scentless Mayweed,Scentless Mayweed,0.931672633
+338,Scentless Mayweed,Scentless Mayweed,0.93121767
+339,Scentless Mayweed,Scentless Mayweed,0.932595909
+340,Scentless Mayweed,Scentless Mayweed,0.957025588
+341,Scentless Mayweed,Scentless Mayweed,0.932409108
+342,Scentless Mayweed,Scentless Mayweed,0.950905085
+343,Scentless Mayweed,Scentless Mayweed,0.932176232
+344,Scentless Mayweed,Scentless Mayweed,0.916475534
+345,Scentless Mayweed,Scentless Mayweed,0.93456161
+346,Scentless Mayweed,Scentless Mayweed,0.932325482
+347,Scentless Mayweed,Scentless Mayweed,0.942862272
+348,Scentless Mayweed,Scentless Mayweed,0.940118551
+349,Scentless Mayweed,Scentless Mayweed,0.934394121
+350,Scentless Mayweed,Scentless Mayweed,0.935261369
+351,Scentless Mayweed,Scentless Mayweed,0.931666851
+352,Scentless Mayweed,Scentless Mayweed,0.940361142
+353,Scentless Mayweed,Scentless Mayweed,0.946103215
+354,Scentless Mayweed,Scentless Mayweed,0.935184836
+355,Scentless Mayweed,Scentless Mayweed,0.950880826
+356,Scentless Mayweed,Scentless Mayweed,0.940367758
+357,Scentless Mayweed,Scentless Mayweed,0.922359288
+358,Scentless Mayweed,Scentless Mayweed,0.926588237
+359,Scentless Mayweed,Scentless Mayweed,0.933672309
+360,Scentless Mayweed,Scentless Mayweed,0.934425116
+361,Scentless Mayweed,Scentless Mayweed,0.938056827
+362,Scentless Mayweed,Scentless Mayweed,0.95294857
+363,Scentless Mayweed,Scentless Mayweed,0.947541416
+364,Scentless Mayweed,Scentless Mayweed,0.938244939
+365,Scentless Mayweed,Scentless Mayweed,0.933770537
+366,Scentless Mayweed,Scentless Mayweed,0.954104841
+367,Scentless Mayweed,Scentless Mayweed,0.889383197
+368,Scentless Mayweed,Scentless Mayweed,0.937797606
+369,Scentless Mayweed,Scentless Mayweed,0.948377132
+370,Scentless Mayweed,Scentless Mayweed,0.936484218
+371,Scentless Mayweed,Scentless Mayweed,0.936462045
+372,Scentless Mayweed,Scentless Mayweed,0.942718804
+373,Scentless Mayweed,Scentless Mayweed,0.933954775
+374,Scentless Mayweed,Scentless Mayweed,0.921242118
+375,Scentless Mayweed,Scentless Mayweed,0.929120779
+376,Scentless Mayweed,Scentless Mayweed,0.942709565
+377,Scentless Mayweed,Scentless Mayweed,0.940915406
+378,Scentless Mayweed,Scentless Mayweed,0.931144297
+379,Scentless Mayweed,Scentless Mayweed,0.940673232
+380,Scentless Mayweed,Scentless Mayweed,0.937742174
+381,Scentless Mayweed,Scentless Mayweed,0.952613533
+382,Scentless Mayweed,Scentless Mayweed,0.936242461
+383,Scentless Mayweed,Scentless Mayweed,0.958904326
+384,Scentless Mayweed,Scentless Mayweed,0.941319466
+385,Scentless Mayweed,Scentless Mayweed,0.956622481
+386,Scentless Mayweed,Scentless Mayweed,0.934331
+387,Scentless Mayweed,Scentless Mayweed,0.934440494
+388,Scentless Mayweed,Scentless Mayweed,0.933164001
+389,Scentless Mayweed,Scentless Mayweed,0.943167925
+390,Scentless Mayweed,Scentless Mayweed,0.934954703
+391,Scentless Mayweed,Scentless Mayweed,0.925202668
+392,Scentless Mayweed,Scentless Mayweed,0.924429417
+393,Scentless Mayweed,Scentless Mayweed,0.924942136
+394,Scentless Mayweed,Scentless Mayweed,0.939523399
+395,Scentless Mayweed,Scentless Mayweed,0.938373029
+396,Scentless Mayweed,Scentless Mayweed,0.935100377
+397,Scentless Mayweed,Scentless Mayweed,0.928725779
+398,Scentless Mayweed,Scentless Mayweed,0.932346404
+399,Scentless Mayweed,Scentless Mayweed,0.960169017
+400,Sugar beet,Sugar beet,0.928833365
+401,Sugar beet,Sugar beet,0.927214384
+402,Sugar beet,Sugar beet,0.899178207
+403,Sugar beet,Sugar beet,0.928379595
+404,Sugar beet,Sugar beet,0.933141887
+405,Sugar beet,Sugar beet,0.928920686
+406,Sugar beet,Sugar beet,0.928718686
+407,Sugar beet,Sugar beet,0.925579548
+408,Sugar beet,Sugar beet,0.931110263
+409,Sugar beet,Sugar beet,0.924948514
+410,Sugar beet,Sugar beet,0.941624224
+411,Sugar beet,Sugar beet,0.935283065
+412,Sugar beet,Sugar beet,0.931510746
+413,Sugar beet,Sugar beet,0.938509166
+414,Sugar beet,Sugar beet,0.936975658
+415,Sugar beet,Sugar beet,0.915220559
+416,Sugar beet,Sugar beet,0.948208272
+417,Sugar beet,Sugar beet,0.949646115
+418,Sugar beet,Sugar beet,0.909300089
+419,Sugar beet,Sugar beet,0.919107735
+420,Sugar beet,Sugar beet,0.944947422
+421,Sugar beet,Sugar beet,0.932469666
+422,Sugar beet,Sugar beet,0.937456787
+423,Sugar beet,Sugar beet,0.927131295
+424,Sugar beet,Sugar beet,0.925457537
+425,Sugar beet,Sugar beet,0.930898011
+426,Sugar beet,Sugar beet,0.930515349
+427,Sugar beet,Sugar beet,0.932449639
+428,Sugar beet,Sugar beet,0.930824161
+429,Sugar beet,Sugar beet,0.941511035
+430,Sugar beet,Sugar beet,0.931042254
+431,Sugar beet,Sugar beet,0.944049656
+432,Sugar beet,Sugar beet,0.931350827
+433,Sugar beet,Sugar beet,0.91742897
+434,Sugar beet,Sugar beet,0.92268914
+435,Sugar beet,Sugar beet,0.936266005
+436,Sugar beet,Sugar beet,0.922818542
+437,Sugar beet,Sugar beet,0.928795636
+438,Sugar beet,Sugar beet,0.951543868
+439,Sugar beet,Sugar beet,0.927430511
+440,Sugar beet,Sugar beet,0.939604342
+441,Sugar beet,Sugar beet,0.936145723
+442,Sugar beet,Sugar beet,0.921992838
+443,Sugar beet,Sugar beet,0.923465192
+444,Sugar beet,Sugar beet,0.937493145
+445,Sugar beet,Sugar beet,0.933000982
+446,Sugar beet,Sugar beet,0.944252372
+447,Sugar beet,Sugar beet,0.929184198
+448,Sugar beet,Sugar beet,0.935855925
+449,Sugar beet,Sugar beet,0.928035021
+450,Sugar beet,Sugar beet,0.913883209
+451,Sugar beet,Sugar beet,0.920250535
+452,Sugar beet,Sugar beet,0.913826048
+453,Sugar beet,Sugar beet,0.916136444
+454,Sugar beet,Sugar beet,0.926608086
+455,Sugar beet,Sugar beet,0.927862167
+456,Sugar beet,Sugar beet,0.91816318
+457,Sugar beet,Sugar beet,0.940311134
+458,Sugar beet,Sugar beet,0.929322243
+459,Sugar beet,Sugar beet,0.916396141
+460,Sugar beet,Sugar beet,0.92797786
+461,Sugar beet,Sugar beet,0.93272531
+462,Sugar beet,Sugar beet,0.91361171
+463,Sugar beet,Sugar beet,0.932603061
+464,Sugar beet,Sugar beet,0.930521548
+465,Sugar beet,Sugar beet,0.920156837
+466,Sugar beet,Sugar beet,0.924894869
+467,Sugar beet,Sugar beet,0.931665719
+468,Sugar beet,Sugar beet,0.936708748
+469,Sugar beet,Sugar beet,0.945684016
+470,Sugar beet,Sugar beet,0.929822862
+471,Sugar beet,Sugar beet,0.918323219
+472,Sugar beet,Sugar beet,0.930766761
+473,Sugar beet,Sugar beet,0.934841931
+474,Sugar beet,Sugar beet,0.927829564
+475,Sugar beet,Sugar beet,0.941566467
+476,Sugar beet,Sugar beet,0.956281662
+477,Sugar beet,Sugar beet,0.90971595
+478,Sugar beet,Sugar beet,0.930587173
+479,Sugar beet,Sugar beet,0.930325031
+480,Sugar beet,Sugar beet,0.932132483
+481,Sugar beet,Sugar beet,0.91919595
+482,Sugar beet,Sugar beet,0.934861362
+483,Sugar beet,Sugar beet,0.934225321
+484,Sugar beet,Sugar beet,0.939583898
+485,Sugar beet,Sugar beet,0.913954794
+486,Sugar beet,Sugar beet,0.926823199
+487,Sugar beet,Sugar beet,0.927558899
+488,Sugar beet,Sugar beet,0.894514441
+489,Sugar beet,Sugar beet,0.927278697
+490,Sugar beet,Sugar beet,0.933395386
+491,Sugar beet,Sugar beet,0.919942498
+492,Sugar beet,Sugar beet,0.92325145
+493,Sugar beet,Sugar beet,0.929580212
+494,Sugar beet,Sugar beet,0.609915376
+495,Sugar beet,Sugar beet,0.934764564
+496,Sugar beet,Sugar beet,0.947517574
+497,Sugar beet,Sugar beet,0.915632248
+498,Sugar beet,Sugar beet,0.919890046
+499,Sugar beet,Sugar beet,0.92580092

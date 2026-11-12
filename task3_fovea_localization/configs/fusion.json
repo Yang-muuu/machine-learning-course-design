@@ -1,0 +1,61 @@
+{
+  "submission_sha256": "d9904b30dc046a0ec03070c445badecbc3b432ab5ac685c54871127ffa902662",
+  "branches": {
+    "rfm_cv80": {
+      "model": "rfm",
+      "folds": 5,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261021,
+      "script": "run_next_training.py",
+      "kaggle_required": true
+    },
+    "hrnet_rgb80": {
+      "model": "hrnet",
+      "folds": 5,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261021,
+      "script": "run_spatial_training.py",
+      "kaggle_required": true
+    },
+    "rfm_cv30": {
+      "model": "rfm",
+      "folds": 5,
+      "snapshot": 30,
+      "train_epochs": 40,
+      "seed": 20261021,
+      "script": "run_followup_training.py",
+      "stage": "p2_rfm"
+    },
+    "visionfm_cv20": {
+      "model": "visionfm",
+      "folds": 5,
+      "snapshot": 20,
+      "train_epochs": 40,
+      "seed": 20261021,
+      "script": "run_followup_training.py",
+      "stage": "p3_visionfm"
+    },
+    "hrnet_luma40": {
+      "model": "hrnet",
+      "folds": 5,
+      "snapshot": 40,
+      "train_epochs": 40,
+      "seed": 20261026,
+      "script": "run_contrast_training.py",
+      "variant": "hrnet_luma"
+    }
+  },
+  "weights": {
+    "X": {
+      "rfm_cv30": "0.5",
+      "visionfm_cv20": "0.5"
+    },
+    "Y": {
+      "rfm_cv30": "0.5",
+      "visionfm_cv20": "0.5"
+    }
+  },
+  "selection_scope": "Equal blend of the two lowest archived single-branch pooled training OOF RMSEs."
+}

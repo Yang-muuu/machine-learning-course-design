@@ -1,0 +1,19 @@
+{
+  "seed": 20261026,
+  "epochs": 40,
+  "schedule_epochs": 80,
+  "batch_size": 8,
+  "lr": 0.001,
+  "snapshots": [
+    20,
+    40
+  ],
+  "torch_version": "2.11.0+cu128",
+  "timm_version": "1.0.29",
+  "gpus": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "encoder_training": "fully frozen; no stage4 adaptation",
+  "full_model_ema": 0.97
+}
