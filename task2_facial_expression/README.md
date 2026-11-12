@@ -1,5 +1,17 @@
 # 任务二 人脸表情分类
 
+## Kaggle 最终提交
+
+报告中的 `submission (9).csv` 对应提交 **57273426**，公榜与私榜 Accuracy 均为 **0.747**。四路分别为 ConvNeXt-Tiny + ECA、DINOv2 ViT-S/14、DDAMFN++、DAN。每路平均五折模型输出的六类概率，再按 0.20、0.20、0.40、0.20 融合。训练侧四路融合的完整五折准确率为 73.39%，Macro-F1 为 0.71595。
+
+[最终配方](records/kaggle_final_recipe.json)保存四路训练配置、选用轮次和预测归档指纹。开发阶段曾用测试参考核对冻结预测，模型分析采用分组折外结果。使用原始项目的 `exact_replay/frozen_predictions.zip` 可重建提交 CSV。回放入口使用 NumPy，读取四路概率与模板 ID，并校验输出 SHA-256。
+
+~~~bash
+python tools/replay_kaggle_final.py --archive /path/to/frozen_predictions.zip
+~~~
+
+## 训练侧 ResNet 对照
+
 本实验对 48 × 48 灰度人脸图像做六分类。标签顺序为愤怒（Angry，0）、恐惧（Fear，1）、高兴（Happy，2）、悲伤（Sad，3）、惊讶（Surprise，4）、中性（Neutral，5）。从课程原始训练集隔离 39 个标签冲突的同像素组，共 110 张，剩余 28,165 张。其余同像素图保留，用解码灰度像素的 SHA-256 分组，生成固定五折划分。本次训练使用第 0、1、2 折验证，覆盖 16,898 张。第 0 折用于筛选 ResNet34 的学习率，第 1、2 折复查选定配置。
 
 两种骨干均从 torchvision 的 ImageNet 权重初始化，将灰度图复制为三通道后缩放至 96 × 96。保留原始残差结构和全局平均池化，用 Dropout 与六类线性层替换分类头，并微调整网。训练时做轻量仿射、翻转和亮度对比度扰动。验证时平均原图与水平翻转图的概率，按验证准确率选 checkpoint，同分时取较低 Log-loss。

@@ -1,0 +1,146 @@
+{
+  "submission_sha256": "cfff4a03b1358d588b8c30eb8bedbff96a5468656f214d571aa7c1a4ada33511",
+  "rows": 7065,
+  "classes": [
+    "愤怒",
+    "恐惧",
+    "快乐",
+    "悲伤",
+    "惊讶",
+    "中性"
+  ],
+  "fold_counts": [
+    5610,
+    5629,
+    5659,
+    5641,
+    5626
+  ],
+  "template": "sample_submission.csv",
+  "template_sha256": "5139a0ce260f91215ce4de8bc61a7e6fb452c0bf0b0956763d21b25d171b42f6",
+  "models": [
+    {
+      "key": "convnext_eca",
+      "name": "ConvNeXt-Tiny + ECA",
+      "weight": "0.20",
+      "prediction_member": "convnext_eca_test.npy",
+      "prediction_sha256": "0dee5afa15568d605dd33626fda7831c1299edb9f8089df2e34619b0575307d1",
+      "config": {
+        "architecture": "convnext_tiny",
+        "image_size": 128,
+        "batch_size": 96,
+        "max_epochs": 18,
+        "lr": 0.0001,
+        "head_lr": 0.0003,
+        "dropout": 0.25,
+        "weight_decay": 0.001,
+        "warmup_epochs": 2,
+        "ema_decay": 0.995,
+        "label_smoothing": 0.05,
+        "mixup_probability": 0.5
+      },
+      "best_epochs": [
+        8,
+        9,
+        13,
+        7,
+        8
+      ]
+    },
+    {
+      "key": "dinov2_small",
+      "name": "DINOv2 ViT-S/14",
+      "weight": "0.20",
+      "prediction_member": "dinov2_small_test.npy",
+      "prediction_sha256": "44318a59dc4ca393dc295c581438052b3539c007984bd55e8b7d18fb5b493c19",
+      "config": {
+        "architecture": "dinov2_vits14",
+        "image_size": 126,
+        "batch_size": 96,
+        "max_epochs": 20,
+        "lr": 2e-05,
+        "head_lr": 0.0003,
+        "dropout": 0.25,
+        "weight_decay": 0.01,
+        "warmup_epochs": 1,
+        "ema_decay": 0.995,
+        "label_smoothing": 0.05,
+        "mixup_probability": 0.15,
+        "freeze_blocks": 4
+      },
+      "best_epochs": [
+        9,
+        9,
+        9,
+        9,
+        11
+      ]
+    },
+    {
+      "key": "ddam_drop",
+      "name": "DDAMFN++",
+      "weight": "0.40",
+      "prediction_member": "ddam_test.npy",
+      "prediction_sha256": "5842b69de263d769d32f81a3c7405150a8c0711197f222d309bdc16bc4205708",
+      "config": {
+        "architecture": "ddamfnpp_affectnet7",
+        "image_size": 112,
+        "batch_size": 96,
+        "max_epochs": 14,
+        "lr": 5e-05,
+        "head_lr": 0.0001,
+        "dropout": 0.3,
+        "weight_decay": 0.01,
+        "warmup_epochs": 2,
+        "ema_decay": 0.995,
+        "label_smoothing": 0.03,
+        "mixup_probability": 0.15,
+        "freeze_bn": true
+      },
+      "best_epochs": [
+        10,
+        12,
+        9,
+        11,
+        9
+      ]
+    },
+    {
+      "key": "dan",
+      "name": "DAN",
+      "weight": "0.20",
+      "prediction_member": "dan_test.npy",
+      "prediction_sha256": "b7bcba85e41fafa64e7c11f81dd327c12de06d52699226c71a5dda7c38f57fa7",
+      "config": {
+        "architecture": "dan_affectnet7",
+        "image_size": 224,
+        "batch_size": 48,
+        "max_epochs": 13,
+        "lr": 2e-05,
+        "head_lr": 0.0001,
+        "dropout": 0.2,
+        "weight_decay": 0.01,
+        "warmup_epochs": 2,
+        "ema_decay": 0.995,
+        "label_smoothing": 0.03,
+        "mixup_probability": 0.15,
+        "freeze_bn": true
+      },
+      "best_epochs": [
+        11,
+        10,
+        10,
+        10,
+        11
+      ]
+    }
+  ],
+  "training_oof": {
+    "rows": 28165,
+    "correct": 20669,
+    "accuracy": 0.7338540742055742,
+    "macro_f1": 0.7159516227675234,
+    "log_loss": 0.7355563509472022
+  },
+  "scope": "训练折外结果用于比较四路模型。开发阶段曾用测试参考核对冻结预测，榜单记录对应实际 Kaggle 提交。"
+}

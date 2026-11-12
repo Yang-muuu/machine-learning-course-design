@@ -2,6 +2,8 @@
 
 用 500 张有标签的 RGB 图训练五分类模型，每类 100 张。正式方案是 ConvNeXt-Small 的分层五折监督训练。每折按验证集 Macro-F1 选权重，推理时平均五折的类别概率。训练集折外预测共判对 485 张，准确率 0.9700，Macro-F1 0.97010。
 
+报告中的 `submission (8).csv` 对应监督方案提交 **57038444**，Kaggle 公榜与私榜 F1 Score 均为 **0.9708**。附件的 SHA-256 与 `results/summary.json` 中的 `source_artifact_sha256.original_submission` 一致。
+
 | 路径 | 用途 |
 | --- | --- |
 | `notebooks/01_supervised_kaggle.ipynb` | 监督训练与推理的 Kaggle 入口，所需 Python 源码已内嵌。 |
@@ -29,7 +31,7 @@ python src/train_sprint.py --data-root data/2026task1 --out-dir outputs/supervis
 
 历史上另做了一次无标签测试图自训练。五折教师对 378 张图推理，按平均最大概率至少 0.90、五个教师类别一致和每类最多 50 张的条件得到 208 张软伪标签。五个学生分别从对应教师初始化，各用全部 500 张有标签训练图和相同的 208 张伪标签图继续训练五轮。伪标签损失权重为 0.20。教师与学生等权融合，最终类别与纯监督预测按 ID 比较一致。学生没有独立的折外结果，这次比较也没有把增加有标签样本与伪标签两个因素拆开。
 
-Kaggle 历史提交记录 57043322 对应这份教师与学生融合 CSV，公开榜单 `MeanF1Score` 为 0.9708。归档保存该 CSV 的 SHA-256，历史监督 CSV 与它字节不同，但 378 个 ID 对应的类别一致。正式方法采用纯监督，便于复查训练数据范围。只有课程规则允许利用无标签测试图训练时，才启用 `notebooks/02_pseudolabel_comparison_kaggle.ipynb` 中的开关或运行 `src/train_sprint_pseudo.py --allow-unlabeled-test-training`。
+教师与学生融合 CSV 属于伪标签对照，归档保存了它的 SHA-256。监督方案与该对照的 378 个 ID 对应类别一致。只有课程规则允许利用无标签测试图训练时，才启用 `notebooks/02_pseudolabel_comparison_kaggle.ipynb` 中的开关或运行 `src/train_sprint_pseudo.py --allow-unlabeled-test-training`。
 
 ## 离线核对
 

@@ -2,6 +2,21 @@
 
 这个仓库包含四项计算机视觉实验的源码、训练配置与复查所需的归档记录。各任务目录说明数据放置方式、训练入口和结果对应的实验范围。
 
+## Kaggle 最终提交
+
+2026 年 11 月 12 日从 Kaggle 下载对应提交并核对 CSV 的 SHA-256。下表与报告中的四份附件对应。第二项有两次内容相同的提交，采用较晚的 57273426。
+
+| 实验 | 附件 | 提交编号 | 评分指标 | 公榜 | 私榜 |
+| --- | --- | ---: | --- | ---: | ---: |
+| 植物幼苗分类 | submission (8).csv | 57038444 | F1 Score | 0.9708 | 0.9708 |
+| 人脸表情分类 | submission (9).csv | 57273426 | Accuracy | 0.747 | 0.747 |
+| 黄斑中央凹定位 | submission (10).csv | 57668363 | RMSE | 11.41176 | 12.70134 |
+| 眼底血管分割 | submission (11).csv | 57947747 | Dice | 0.86267 | 0.86530 |
+
+[提交核对记录](kaggle_submissions.json)保存完整文件指纹、提交时间和赛事地址。第二、三项的历史融合配置和预测回放入口见各自任务目录。
+
+## 训练侧对照
+
 | 任务 | 方案 | 训练集内部验证 |
 | --- | --- | --- |
 | [植物幼苗图像分类](task1_plant_seedling/) | ConvNeXt-Small 监督训练，五折概率集成 | 500 张折外，准确率 0.9700，Macro-F1 0.97010 |
@@ -27,6 +42,12 @@ python -B verify_all.py --task3-labels /path/to/fovea_localization_train_GT.csv
 ~~~
 
 实验二的本地数据准备会生成分组划分。可用 `--task2-split-manifest` 复核该文件，具体参数见实验二 README。
+
+如需同时核对手头的四份提交文件，可指定其所在目录。
+
+~~~bash
+python -B verify_all.py --kaggle-csv-dir /path/to/submission_csvs
+~~~
 
 ## 重新训练
 

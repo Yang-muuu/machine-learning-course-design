@@ -33,6 +33,29 @@ def run(folder, script, *args):
     return result.stdout
 
 
+def verify_kaggle_records(csv_dir):
+    records = load(ROOT / "kaggle_submissions.json")["tasks"]
+    if [row["task"] for row in records] != [1, 2, 3, 4]:
+        raise ValueError("Expected one archived Kaggle record per task.")
+    expected_sha = (
+        load(ROOT / "task1_plant_seedling/results/summary.json")["source_artifact_sha256"]["original_submission"],
+        load(ROOT / "task2_facial_expression/records/kaggle_final_recipe.json")["submission_sha256"],
+        load(ROOT / "task3_fovea_localization/configs/kaggle_final_fusion.json")["submission_sha256"],
+        load(ROOT / "task4_vessel_segmentation/records/final_snapshot.json")["submission_sha256"],
+    )
+    for row, expected in zip(records, expected_sha):
+        if row["sha256"] != expected or row["match"] != "byte_identical_sha256" or row["status"] != "COMPLETE":
+            raise ValueError(f"Archived Kaggle record disagrees with its task files: {row['task']}.")
+        if csv_dir is not None:
+            name = row["local_file"]
+            if Path(name).name != name or digest(csv_dir / name) != expected:
+                raise ValueError(f"Local CSV checksum mismatch: {name}.")
+    return {
+        "archived_submission_refs": [row["submission_ref"] for row in records],
+        "local_csv_checksums_verified": csv_dir is not None,
+    }
+
+
 def verify_task3(labels):
     folder = "task3_fovea_localization"
     task = ROOT / folder
@@ -88,7 +111,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--task2-split-manifest", type=Path, help="optional locally generated official training split")
     parser.add_argument("--task3-labels", type=Path, help="optional official 80-row training coordinates")
+    parser.add_argument("--kaggle-csv-dir", type=Path, help="optional directory with the four submitted CSV files")
     args = parser.parse_args()
+    kaggle = verify_kaggle_records(args.kaggle_csv_dir)
     task1 = json.loads(run("task1_plant_seedling", "scripts/verify_results.py"))
     task2_args = ["--split-manifest", args.task2_split_manifest.resolve()] if args.task2_split_manifest else []
     task2 = json.loads(run("task2_facial_expression", "verify_results.py", *task2_args))
@@ -97,6 +122,7 @@ def main():
     fusion2 = task2["pooled"]["Equal_fusion"]
     print(json.dumps({
         "status": "archive_checks_passed",
+        "kaggle": kaggle,
         "task1": {
             "accuracy": task1["oof"]["accuracy"],
             "macro_f1": task1["oof"]["macro_f1"],

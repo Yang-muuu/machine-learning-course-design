@@ -1,5 +1,17 @@
 # 实验三 眼底图像黄斑中央凹定位
 
+## Kaggle 最终提交
+
+报告中的 `submission (10).csv` 对应提交 **57668363**，公榜 RMSE 为 **11.41176**，私榜为 **12.70134**。X 坐标等权融合 RFM 五折长程、RFM 全量冻结、RFM 全量 LoRA 和 HRNet RGB。Y 坐标按 0.25、0.25、0.50 融合 RFM 短程、VisionFM 短程和 HRNet 亮度增强。
+
+历史七路配方在开发阶段用测试参考比较候选后确定。两个全量分支没有折外预测，训练侧分析使用分组五折结果。[最终配方](configs/kaggle_final_fusion.json)记录七路的训练范围、快照和分轴权重。用原始归档中的七路 `predictions/branches/` 可重建 40 行提交，并校验文件指纹。
+
+~~~bash
+python tools/rebuild_submission.py --recipe configs/kaggle_final_fusion.json --branch-dir /path/to/original/predictions/branches --output work/kaggle_final_submission.csv --verify
+~~~
+
+## 训练侧五折对照
+
 使用 80 张带坐标的训练图和 20 张待预测图。80 张训练图按原始尺寸分层，并按文件 SHA-256 分组。两张字节相同的训练图放在同一折，五折分别有 15、16、17、16、16 张验证图。
 
 模型先裁去眼底视野以外的黑边，再用冻结的预训练编码器和同一结构的空间解码头定位中心凹。RFM 第 30 轮与 VisionFM 第 20 轮的 EMA 快照在两个坐标轴上均按 1:1 融合。80 张训练图的折外 RMSE 为 **17.36587 px**，单支路分别为 18.64173 和 18.00385 px。归档中的融合 CSV 为按训练折外结果整理的候选，暂无官方线上评测。

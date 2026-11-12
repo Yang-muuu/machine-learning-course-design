@@ -1,0 +1,80 @@
+{
+  "submission_sha256": "e5a8f5a495b2c23479630b76d0621fa9905cb5a938e65b0b087e38215e90ed12",
+  "branches": {
+    "rfm_cv80": {
+      "model": "rfm",
+      "folds": 5,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261021,
+      "script": "run_next_training.py",
+      "kaggle_required": true
+    },
+    "rfm_full80": {
+      "model": "rfm",
+      "folds": 1,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261022,
+      "script": "train_full_data_model.py"
+    },
+    "rfm_lora80": {
+      "model": "rfm",
+      "folds": 1,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261022,
+      "script": "train_retinal_lora.py"
+    },
+    "hrnet_rgb80": {
+      "model": "hrnet",
+      "folds": 5,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261021,
+      "script": "run_spatial_training.py",
+      "kaggle_required": true
+    },
+    "rfm_cv30": {
+      "model": "rfm",
+      "folds": 5,
+      "snapshot": 30,
+      "train_epochs": 40,
+      "seed": 20261021,
+      "script": "run_followup_training.py",
+      "stage": "p2_rfm"
+    },
+    "visionfm_cv20": {
+      "model": "visionfm",
+      "folds": 5,
+      "snapshot": 20,
+      "train_epochs": 40,
+      "seed": 20261021,
+      "script": "run_followup_training.py",
+      "stage": "p3_visionfm"
+    },
+    "hrnet_luma40": {
+      "model": "hrnet",
+      "folds": 5,
+      "snapshot": 40,
+      "train_epochs": 40,
+      "seed": 20261026,
+      "script": "run_contrast_training.py",
+      "variant": "hrnet_luma"
+    }
+  },
+  "weights": {
+    "X": {
+      "rfm_cv80": "0.25",
+      "rfm_full80": "0.25",
+      "rfm_lora80": "0.25",
+      "hrnet_rgb80": "0.25"
+    },
+    "Y": {
+      "rfm_cv30": "0.25",
+      "visionfm_cv20": "0.25",
+      "hrnet_luma40": "0.50"
+    }
+  },
+  "scope": "历史七路配方在开发阶段用测试参考比较候选后确定。训练侧分析使用分组五折，两个全量分支没有折外预测。"
+}
