@@ -1,8 +1,10 @@
-# 与本次实际验证环境的版本一致；GPU/CPU 版 torch 由所选官方安装源决定。
-torch==2.11.0
-torchvision==0.26.0
-numpy==2.3.4
-pandas==2.3.3
+# 首先保留或安装与GPU驱动匹配的torch/torchvision，不在此替换CUDA框架。
+numpy>=2.0,<3
+pandas>=2.0,<3
+Pillow>=10
 scikit-learn==1.7.2
-matplotlib==3.10.7
-Pillow==12.0.0
+timm==1.0.29
+safetensors>=0.4
+matplotlib>=3.8
+scipy>=1.11
+threadpoolctl>=3

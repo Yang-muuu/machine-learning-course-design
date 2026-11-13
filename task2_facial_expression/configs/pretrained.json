@@ -1,0 +1,54 @@
+{
+  "convnext_eca": {
+    "filename": "convnext_tiny-983f1562.pth",
+    "bytes": 114419221,
+    "sha256": "983f1562536e84ff750a1576fb08e54de751dbf2e17c0d8a4a13704341fdcd3d",
+    "url": "https://download.pytorch.org/models/convnext_tiny-983f1562.pth",
+    "scope": "public pretraining; not a task2 trained fold checkpoint"
+  },
+  "dinov2_small": {
+    "filename": "dinov2_vits14.safetensors",
+    "bytes": 88240510,
+    "sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+    "url": "https://huggingface.co/timm/vit_small_patch14_dinov2.lvd142m/resolve/4610ca143709d58a633b6397a74412c2c3842454/model.safetensors",
+    "scope": "public pretraining; not a task2 trained fold checkpoint"
+  },
+  "dan": {
+    "filename": "dan_affectnet7.pth",
+    "bytes": 237009185,
+    "sha256": "3189a13f28592c20ce9b9dd57e457caabf6a7bb80c36df94d3d0348829cec752",
+    "url": "https://drive.usercontent.google.com/download?id=1_Z-U7rT5NJ3Vc73aN2ZBmuvCkzUQG4jT&export=download&confirm=t",
+    "scope": "public pretraining; not a task2 trained fold checkpoint"
+  },
+  "ddam_drop": {
+    "filename": "ddamfnpp_affectnet7.pth",
+    "bytes": 17499403,
+    "sha256": "edf731a458162eef6b2be12c3572bd10cbe92ce8c009da4331184a2943d7ed14",
+    "url": "https://raw.githubusercontent.com/SainingZhang/DDAMFN/cebfe5c5969b7d1fd64ecd775e318d3834ca76bb/DDAMFN%2B%2B/checkpoints_ver2.0/affecnet7_epoch19_acc0.671.pth",
+    "scope": "public pretraining; not a task2 trained fold checkpoint"
+  },
+  "b2_native": {
+    "filename": "emotieffnet_b2_affectnet7.safetensors",
+    "bytes": 31160652,
+    "sha256": "a9b27a08a0b9553a6c90cbc8ef855bbd823803a01dad90d1860b5147069e1b35",
+    "scope": "public AffectNet initialization, safely converted to safetensors; not a task2 model",
+    "source_repository": "sb-ai-lab/EmotiEffLib",
+    "original_revision": "520a051c64cd191521e5934655314e769a319684",
+    "original_sha256": "e687fd9e7bee45486c7325f11222740f841c3bebac531badb903a50e82b9ac0f",
+    "original_url": "https://raw.githubusercontent.com/sb-ai-lab/EmotiEffLib/520a051c64cd191521e5934655314e769a319684/models/affectnet_emotions/enet_b2_7.pt"
+  },
+  "ddam_old": {
+    "filename": "ddamfnpp_affectnet7.pth",
+    "bytes": 17499403,
+    "sha256": "edf731a458162eef6b2be12c3572bd10cbe92ce8c009da4331184a2943d7ed14",
+    "url": "https://raw.githubusercontent.com/SainingZhang/DDAMFN/cebfe5c5969b7d1fd64ecd775e318d3834ca76bb/DDAMFN%2B%2B/checkpoints_ver2.0/affecnet7_epoch19_acc0.671.pth",
+    "scope": "public pretraining; not a task2 trained fold checkpoint"
+  },
+  "ddam_sam": {
+    "filename": "ddamfnpp_affectnet7.pth",
+    "bytes": 17499403,
+    "sha256": "edf731a458162eef6b2be12c3572bd10cbe92ce8c009da4331184a2943d7ed14",
+    "url": "https://raw.githubusercontent.com/SainingZhang/DDAMFN/cebfe5c5969b7d1fd64ecd775e318d3834ca76bb/DDAMFN%2B%2B/checkpoints_ver2.0/affecnet7_epoch19_acc0.671.pth",
+    "scope": "public pretraining; not a task2 trained fold checkpoint"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "image_size": 126,
+  "batch_size": 96,
+  "eval_batch_size": 192,
+  "max_epochs": 20,
+  "min_epochs": 10,
+  "epochs": 20,
+  "warmup_epochs": 1,
+  "patience": 7,
+  "lr": 2e-05,
+  "head_lr_multiplier": 3.0,
+  "weight_decay": 0.01,
+  "dropout": 0.25,
+  "label_smoothing": 0.05,
+  "ema_decay": 0.995,
+  "ema_warmup_epochs": 1,
+  "mixup_alpha": 0.2,
+  "cutmix_alpha": 1.0,
+  "mixup_probability": 0.15,
+  "cutmix_probability": 0,
+  "unmixed_final_epochs": 2,
+  "crop_scale": [
+    0.85,
+    1.0
+  ],
+  "crop_ratio": [
+    0.9,
+    1.1
+  ],
+  "rotation": 10,
+  "jitter": 0.15,
+  "erasing_probability": 0,
+  "attention": "none",
+  "workers": 0,
+  "cpu_threads": 2,
+  "seed": 42,
+  "total_budget_seconds": 10200,
+  "finish_reserve_seconds": 600,
+  "throughput_safety_factor": 1.3,
+  "input_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "input_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "interpolation": "bicubic",
+  "architecture": "dinov2_vits14",
+  "head": "gap",
+  "loss_kind": "ce",
+  "gce_q": 0.7,
+  "gce_weight": 0.5,
+  "robust_start_epoch": 5,
+  "selection": "ema",
+  "clean_train_samples": 600,
+  "head_lr": 0.0003,
+  "freeze_blocks": 4
+}

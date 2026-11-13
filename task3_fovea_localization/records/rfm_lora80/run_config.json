@@ -1,0 +1,29 @@
+{
+  "seed": 20261022,
+  "epochs": 80,
+  "schedule_epochs": 80,
+  "torch_version": "2.11.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "adapter_rank": 8,
+  "adapter_alpha": 8,
+  "adapter_parameters": 110592,
+  "adapter_blocks": [
+    6,
+    7,
+    8
+  ],
+  "head_lr": 0.001,
+  "adapter_lr": 0.0001,
+  "adapter_warmup_epochs": 5,
+  "full_model_ema": 0.97,
+  "source_load_info": {
+    "strict": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "source_original_sha256": "fdb51814aeea26463c39b1cd254e473eb6005f52abb1dff92bb83010039bf2f3",
+    "converted_encoder_sha256": "b27b512e65a3369dee1e17ba4fc432ebea2930516bf8f4472ce35e2d2cd3c879",
+    "native_position_shape": null,
+    "position_interpolation": null,
+    "actual_transformer_depth": 9
+  }
+}

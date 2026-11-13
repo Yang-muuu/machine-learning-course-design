@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "models_trained": 1,
+  "logged_epochs": 80,
+  "checkpoints_replayed": 3,
+  "training_scope": "all80",
+  "oof_available": false,
+  "checks": [
+    {
+      "epoch": 20,
+      "checkpoint_sha256": "5c20e1e01f9b0247aef8ed1474c3f4cf56719142c29b7470c591038bb9a7b05a",
+      "strict_replay": true
+    },
+    {
+      "epoch": 40,
+      "checkpoint_sha256": "1fca76c966bc57b6f6028b109ccbad8fd5e0c407d933c62f5f600935e9ad1353",
+      "strict_replay": true
+    },
+    {
+      "epoch": 80,
+      "checkpoint_sha256": "95d301b6618720b8a0b6fe9fbf88fc428168a2458c0d8fbbcca92f8b613a1560",
+      "strict_replay": true
+    }
+  ],
+  "reference_labels_used_for_training": false,
+  "competition_submission_performed": false
+}

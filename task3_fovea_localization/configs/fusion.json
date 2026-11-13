@@ -1,5 +1,5 @@
 {
-  "submission_sha256": "d9904b30dc046a0ec03070c445badecbc3b432ab5ac685c54871127ffa902662",
+  "submission_sha256": "e5a8f5a495b2c23479630b76d0621fa9905cb5a938e65b0b087e38215e90ed12",
   "branches": {
     "rfm_cv80": {
       "model": "rfm",
@@ -9,6 +9,22 @@
       "seed": 20261021,
       "script": "run_next_training.py",
       "kaggle_required": true
+    },
+    "rfm_full80": {
+      "model": "rfm",
+      "folds": 1,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261022,
+      "script": "train_full_data_model.py"
+    },
+    "rfm_lora80": {
+      "model": "rfm",
+      "folds": 1,
+      "snapshot": 80,
+      "train_epochs": 80,
+      "seed": 20261022,
+      "script": "train_retinal_lora.py"
     },
     "hrnet_rgb80": {
       "model": "hrnet",
@@ -49,13 +65,15 @@
   },
   "weights": {
     "X": {
-      "rfm_cv30": "0.5",
-      "visionfm_cv20": "0.5"
+      "rfm_cv80": "0.25",
+      "rfm_full80": "0.25",
+      "rfm_lora80": "0.25",
+      "hrnet_rgb80": "0.25"
     },
     "Y": {
-      "rfm_cv30": "0.5",
-      "visionfm_cv20": "0.5"
+      "rfm_cv30": "0.25",
+      "visionfm_cv20": "0.25",
+      "hrnet_luma40": "0.50"
     }
-  },
-  "selection_scope": "Equal blend of the two lowest archived single-branch pooled training OOF RMSEs."
+  }
 }

@@ -56,24 +56,29 @@ def evaluate(labels):
         if any(not all(isfinite(value) for value in point) for point in points.values()):
             raise ValueError(f"Nonfinite predictions in {file.name}")
         branch_points[file.stem] = points
-    plan = json.loads((ROOT / "configs/fusion.json").read_text(encoding="utf-8"))
-    weights = [{name: float(weight) for name, weight in plan["weights"][axis].items()}
-               for axis in ("X", "Y")]
-    for axis in weights:
-        if fsum(axis.values()) != 1.0 or not axis.keys() <= branch_points.keys():
-            raise ValueError("Invalid OOF blend weights.")
-    final = {
-        i: tuple(fsum(weight * branch_points[name][i][k] for name, weight in weights[k].items())
-                 for k in range(2))
+    equal_pair = {
+        i: (
+            0.5 * (branch_points["rfm_cv30"][i][0] + branch_points["visionfm_cv20"][i][0]),
+            0.5 * (branch_points["rfm_cv30"][i][1] + branch_points["visionfm_cv20"][i][1]),
+        )
         for i in truth
     }
+    plan = json.loads((ROOT / "configs/fusion.json").read_text(encoding="utf-8"))
+    y_weights = {name: float(weight) for name, weight in plan["weights"]["Y"].items()}
+    if abs(fsum(y_weights.values()) - 1.0) > 1e-12 or not y_weights.keys() <= branch_points.keys():
+        raise ValueError("Invalid Y-axis OOF blend weights in configs/fusion.json.")
+    sy_final = fsum(
+        (fsum(weight * branch_points[name][i][1] for name, weight in y_weights.items()) - truth[i][1]) ** 2
+        for i in truth
+    )
     return {
         "training_rows": len(truth),
         "image_hash_groups": len(groups),
         "fold_sizes": [list(folds.values()).count(i) for i in range(5)],
         "training_label_file_sha256": hashlib.sha256(labels.read_bytes()).hexdigest(),
         "branches": {name: summarize(truth, points) for name, points in branch_points.items()},
-        "equal_fusion": summarize(truth, final),
+        "equal_fusion": summarize(truth, equal_pair),
+        "final_y_axis_fusion": {"y_rmse": sqrt(sy_final / len(truth)), "oof_rmse": None},
     }
 
 

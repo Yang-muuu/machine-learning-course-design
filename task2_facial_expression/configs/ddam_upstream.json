@@ -1,0 +1,16 @@
+{
+  "DDAM.py": {
+    "filename": "DDAM.py",
+    "adapter": "ddamfn_pp.py",
+    "sha256": "fa73e9b8a0a04e634b04d33f8d100beecfac05c28135b187fbab823983ce921d",
+    "adapter_sha256": "d67d4d9e9af9c212470fe72811539a87a1450c540e448c5e49ffa8c1069837cf",
+    "url": "https://raw.githubusercontent.com/SainingZhang/DDAMFN/cebfe5c5969b7d1fd64ecd775e318d3834ca76bb/DDAMFN%2B%2B/networks/DDAM.py"
+  },
+  "MixedFeatureNet.py": {
+    "filename": "MixedFeatureNet.py",
+    "adapter": "mixed_feature_net.py",
+    "sha256": "7e1186767d3cdee975ad099ae218046a38949f0ceb2f99e4d611e900863451d5",
+    "adapter_sha256": "7e1186767d3cdee975ad099ae218046a38949f0ceb2f99e4d611e900863451d5",
+    "url": "https://raw.githubusercontent.com/SainingZhang/DDAMFN/cebfe5c5969b7d1fd64ecd775e318d3834ca76bb/DDAMFN%2B%2B/networks/MixedFeatureNet.py"
+  }
+}

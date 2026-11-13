@@ -9,5 +9,8 @@
   "run_followup_training.py": "b3f6a428931ea328f8d8704bee82f3123d9b9b477e5f136c2a1598eea0a810d8",
   "contrast_image_bank.py": "28e7d462a1cd4dcfd28a1d47960cf54489c7c1f11177948a31985aeb7acd6f54",
   "contrast_models.py": "d23219c394d0691ccccf9d87d85fee2800610ac62054c7e76b29d76ee16e88f1",
-  "run_contrast_training.py": "2dc49486079f78ea0e6c1dec753bc98900a67fccb72e63779dad1b3617da14b8"
+  "run_contrast_training.py": "2dc49486079f78ea0e6c1dec753bc98900a67fccb72e63779dad1b3617da14b8",
+  "train_full_data_model.py": "7d16c614f5a1982799590539c4f67d70158440a99465248a6dc9fa371c37bab0",
+  "retinal_lora_models.py": "55e1d5afebba9959d34671e0a87885c1653e700ad9cca495b29720780d283dcd",
+  "train_retinal_lora.py": "993645640eb140034ab654461ae8d76994a2dbb47e19b8e9ac95ff1ef41217c7"
 }

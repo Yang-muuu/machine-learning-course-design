@@ -1,0 +1,60 @@
+{
+  "convnext_eca": {
+    "cnn_models.py": "7d48a3292576f99a86de8177afa493d0467d40f8ba3c2971a1fb7524a1686ee3",
+    "cnn_train.py": "c9ec83d721f5d301339ac22336836770ea7eec0353acf7678dd3518159f6e45b",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "fetch_mobilevit_weights.py": "08a590bf3dfb289aee5e5227a4e220c42d94c5e6d9d701f5c8aa28e10e399954"
+  },
+  "dinov2_small": {
+    "cnn_models.py": "34b17ab803ea9b53110218aa857390a4831461541dbd9db630e1824389e84c03",
+    "cnn_train.py": "ed03c4041fd5d5e62f4ab6fc7e5d890a583aaeeaa77ff70947f4e5ef9183d45d",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "fetch_mobilevit_weights.py": "08a590bf3dfb289aee5e5227a4e220c42d94c5e6d9d701f5c8aa28e10e399954",
+    "fetch_dinov2_weights.py": "254f287400782b9a703532eface198da74a2ef1c3ca86856a05ed9397a23137e"
+  },
+  "ddam_drop": {
+    "cnn_models.py": "8c58a339d08d5baed05832278a9ff3268074427ac8230ab92b1c3d270c7cfe40",
+    "cnn_train.py": "2f989b473ce38e49f79a7872d6b7077a7756eb2c130803c14efbaa2af246fc07",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "fer_nets/__init__.py": "e12bf8dc9aa763f201d885a28427a7d2f38037c452cbfa8f6b301461b2e9423a",
+    "fer_nets/ddamfn_pp.py": "d67d4d9e9af9c212470fe72811539a87a1450c540e448c5e49ffa8c1069837cf",
+    "fer_nets/mixed_feature_net.py": "7e1186767d3cdee975ad099ae218046a38949f0ceb2f99e4d611e900863451d5"
+  },
+  "dan": {
+    "cnn_models.py": "408cc5b5682f9924442b7117bf94f15c6a0a372d087344c2c279c0251b4eb1a9",
+    "cnn_train.py": "5ed8bbfc6376ad111425875c75e427344ce7fb2760bc5005e79006986fadf5a6",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "fer_nets/__init__.py": "e12bf8dc9aa763f201d885a28427a7d2f38037c452cbfa8f6b301461b2e9423a",
+    "fer_nets/dan.py": "2276140163698975a36e4626edeedc50977ae8fe0cc8e39667d85ccb8a1dd97b"
+  },
+  "b2_native": {
+    "cnn_models.py": "8c58a339d08d5baed05832278a9ff3268074427ac8230ab92b1c3d270c7cfe40",
+    "cnn_train.py": "2f989b473ce38e49f79a7872d6b7077a7756eb2c130803c14efbaa2af246fc07",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "fer_nets/__init__.py": "e12bf8dc9aa763f201d885a28427a7d2f38037c452cbfa8f6b301461b2e9423a"
+  },
+  "ddam_old": {
+    "cnn_models.py": "f89b9c20aec168ffcde02ab29039535e09dfc42c478696077e15e59e81b408c3",
+    "cnn_train.py": "e94ab4320ac428be896a1387bc872bf69ea3081ac5870021f34dbdc194775923",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "fer_nets/__init__.py": "e12bf8dc9aa763f201d885a28427a7d2f38037c452cbfa8f6b301461b2e9423a",
+    "fer_nets/ddamfn_pp.py": "d67d4d9e9af9c212470fe72811539a87a1450c540e448c5e49ffa8c1069837cf",
+    "fer_nets/mixed_feature_net.py": "7e1186767d3cdee975ad099ae218046a38949f0ceb2f99e4d611e900863451d5"
+  },
+  "ddam_sam": {
+    "cnn_models.py": "de32fddee904f65d50c901f2cac290520ff6ba161f192bacd3c1653c45628335",
+    "cnn_train.py": "13b348c55f8ddc5565d00ce05612e3ab3f685fbfdcc4546fe89e606f46665dc3",
+    "model_and_aug.py": "5d385deea3bbf2d9d2a92c8c4824df0a66500f4dfb8e31962d2f2cc4c706a554",
+    "prepare_data.py": "2205a5d0f38d75f30466f22795ba788f74a8c0ca0727bee6f9d72c15efadf699",
+    "sam_step.py": "c0f91a817118916cb06e3dd986a8c58826a304a34ac97afbbbae9dfe84df5047",
+    "fer_nets/__init__.py": "e12bf8dc9aa763f201d885a28427a7d2f38037c452cbfa8f6b301461b2e9423a",
+    "fer_nets/ddamfn_pp.py": "d67d4d9e9af9c212470fe72811539a87a1450c540e448c5e49ffa8c1069837cf",
+    "fer_nets/mixed_feature_net.py": "7e1186767d3cdee975ad099ae218046a38949f0ceb2f99e4d611e900863451d5"
+  }
+}
