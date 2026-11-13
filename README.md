@@ -4,14 +4,14 @@
 
 ## 一、Kaggle 最终提交与线上成绩
 
-2026 年 11 月 12 日核对 Kaggle 提交历史与本地保存的提交 CSV，完整指纹与时间戳记录保存在 [`kaggle_submissions.json`](./kaggle_submissions.json)。实验二存在两次文件内容相同的提交（`57273410` 与 `57273426`），表中使用较晚的 `57273426`。
+2026 年 11 月 12 日核对 Kaggle 提交历史与各任务最终提交文件，四份正式提交 CSV 已保存在 [`submissions/`](./submissions/) 目录，完整指纹与时间戳记录保存在 [`kaggle_submissions.json`](./kaggle_submissions.json)。
 
-| 实验 | 目录 | 提交文件 | 提交编号 | 评价指标 | 公榜 | 私榜 | 提交 CSV SHA-256 |
-| --- | --- | --- | ---: | --- | ---: | ---: | --- |
-| 1. 植物幼苗图像分类 | [`task1_plant_seedling/`](./task1_plant_seedling/) | `submission (8).csv` | 57038444 | F1 Score | **0.9708** | **0.9708** | `3b5f222fc11e9ebd36c9974e1ab188d8f95dd2862122434cb9728b0865268e62` |
-| 2. 人脸表情分类 | [`task2_facial_expression/`](./task2_facial_expression/) | `submission (9).csv` | 57273426 | Accuracy | **0.747** | **0.747** | `cfff4a03b1358d588b8c30eb8bedbff96a5468656f214d571aa7c1a4ada33511` |
-| 3. 黄斑中央凹定位 | [`task3_fovea_localization/`](./task3_fovea_localization/) | `submission (10).csv` | 57668363 | RMSE | **11.41176** | **12.70134** | `e5a8f5a495b2c23479630b76d0621fa9905cb5a938e65b0b087e38215e90ed12` |
-| 4. 眼底血管分割 | [`task4_vessel_segmentation/`](./task4_vessel_segmentation/) | `submission (11).csv` | 57947747 | Dice | **0.86267** | **0.86530** | `4d516ae13d88d356dfe5ecc9a17f4f6609b1383c469c7de92b6e809ef2bf5d32` |
+| 实验 | 目录 | 提交文件 | 评价指标 | 公榜 | 私榜 | 提交 CSV SHA-256 |
+| --- | --- | --- | --- | ---: | ---: | --- |
+| 1. 植物幼苗图像分类 | [`task1_plant_seedling/`](./task1_plant_seedling/) | [`submissions/submission (1).csv`](./submissions/submission%20(1).csv) | F1 Score | **0.9708** | **0.9708** | `3b5f222fc11e9ebd36c9974e1ab188d8f95dd2862122434cb9728b0865268e62` |
+| 2. 人脸表情分类 | [`task2_facial_expression/`](./task2_facial_expression/) | [`submissions/submission (2).csv`](./submissions/submission%20(2).csv) | Accuracy | **0.747** | **0.747** | `cfff4a03b1358d588b8c30eb8bedbff96a5468656f214d571aa7c1a4ada33511` |
+| 3. 黄斑中央凹定位 | [`task3_fovea_localization/`](./task3_fovea_localization/) | [`submissions/submission (3).csv`](./submissions/submission%20(3).csv) | RMSE | **11.41176** | **12.70134** | `e5a8f5a495b2c23479630b76d0621fa9905cb5a938e65b0b087e38215e90ed12` |
+| 4. 眼底血管分割 | [`task4_vessel_segmentation/`](./task4_vessel_segmentation/) | [`submissions/submission (4).csv`](./submissions/submission%20(4).csv) | Dice | **0.86267** | **0.86530** | `4d516ae13d88d356dfe5ecc9a17f4f6609b1383c469c7de92b6e809ef2bf5d32` |
 
 ## 二、训练侧核心方案与五折折外（OOF）记录
 
@@ -24,7 +24,7 @@
 
 ## 三、一键离线核验与重算
 
-无需下载原始图像或模型权重即可校验全部四项实验的文件完整性、逐折/逐轮日志、归档指标以及实验三的逐字节 CSV 重建：
+无需下载原始图像或模型权重即可校验全部四项实验的文件完整性、逐折/逐轮日志、归档指标、`submissions/` 下四份提交 CSV 的 SHA-256 指纹以及实验三的逐字节 CSV 重建：
 
 ```bash
 python verify_all.py
@@ -37,10 +37,10 @@ python verify_all.py
 - **实验三**：`cd task3_fovea_localization && python tools/rebuild_submission.py --verify`（从 7 个支路 `predictions/branches/*.csv` 重建并校验 `e5a8f5a...`；加 `--recipe configs/oof_candidate_fusion.json` 可重放 R30+V20 候选）
 - **实验四**：`cd task4_vessel_segmentation && python scripts/verify_archive.py`
 
-如需附带官方标签或下载的提交 CSV 做额外校验：
+如需附带实验三官方训练坐标标签做额外复算：
 
 ```bash
-python verify_all.py --task3-labels /path/to/fovea_localization_train_GT.csv --kaggle-csv-dir /path/to/downloaded_csvs
+python verify_all.py --task3-labels /path/to/fovea_localization_train_GT.csv
 ```
 
 ## 四、从头重新训练与数据/权重获取

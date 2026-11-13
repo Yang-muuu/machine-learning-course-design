@@ -2,7 +2,7 @@
 
 用 500 张有标签的 RGB 图训练五分类模型，每类 100 张。正式方案是 ConvNeXt-Small 的分层五折监督训练。每折按验证集 Macro-F1 选权重，推理时平均五折的类别概率。训练集折外预测共判对 485 张，准确率 0.9700，Macro-F1 0.97010。
 
-报告中的 `submission (8).csv` 对应监督方案提交 **57038444**，Kaggle 公榜与私榜 F1 Score 均为 **0.9708**。附件的 SHA-256 与 `results/summary.json` 中的 `source_artifact_sha256.original_submission` 一致。
+报告中的 `submission (1).csv`（见仓库根目录 `submissions/submission (1).csv`）对应纯监督方案最终提交，Kaggle 公榜与私榜 F1 Score 均为 **0.9708**。该文件的 SHA-256 与 `results/summary.json` 中的 `source_artifact_sha256.original_submission` 一致。
 
 | 路径 | 用途 |
 | --- | --- |

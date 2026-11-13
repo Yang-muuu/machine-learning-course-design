@@ -40,7 +40,7 @@ def run(folder: str, script: str, *args) -> str:
     return result.stdout
 
 
-def verify_kaggle_records(csv_dir: Path | None) -> dict:
+def verify_kaggle_records(csv_dir: Path) -> dict:
     records = load(ROOT / "kaggle_submissions.json")["tasks"]
     if [row["task"] for row in records] != [1, 2, 3, 4]:
         raise ValueError("Expected one archived Kaggle record per task.")
@@ -57,16 +57,18 @@ def verify_kaggle_records(csv_dir: Path | None) -> dict:
     t4_sha = load(ROOT / "task4_vessel_segmentation/records/final_snapshot.json")["submission_sha256"]
 
     expected_sha = (t1_sha, t2_sha, t3_sha, t4_sha)
+    verified_files = []
     for row, expected in zip(records, expected_sha):
         if row["sha256"] != expected or row["match"] != "byte_identical_sha256" or row["status"] != "COMPLETE":
             raise ValueError(f"Archived Kaggle record disagrees with its task files: task {row['task']}.")
-        if csv_dir is not None:
-            name = row["local_file"]
-            if Path(name).name != name or digest(csv_dir / name) != expected:
-                raise ValueError(f"Local CSV checksum mismatch: {name}.")
+        name = row["local_file"]
+        csv_path = csv_dir / name
+        if Path(name).name != name or digest(csv_path) != expected:
+            raise ValueError(f"Submission CSV checksum mismatch: {csv_path}.")
+        verified_files.append(name)
     return {
-        "archived_submission_refs": [row["submission_ref"] for row in records],
-        "local_csv_checksums_verified": csv_dir is not None,
+        "verified_submission_files": verified_files,
+        "submission_csv_checksums_verified": True,
     }
 
 
@@ -173,10 +175,15 @@ def verify_task3(labels: Path | None) -> dict:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--task3-labels", type=Path, help="optional official 80-row training coordinates for Task 3")
-    parser.add_argument("--kaggle-csv-dir", type=Path, help="optional directory containing the four submitted CSV files")
+    parser.add_argument(
+        "--kaggle-csv-dir",
+        type=Path,
+        default=ROOT / "submissions",
+        help="directory containing submission (1).csv .. submission (4).csv (defaults to submissions/)",
+    )
     args = parser.parse_args()
 
-    kaggle = verify_kaggle_records(args.kaggle_csv_dir.resolve() if args.kaggle_csv_dir else None)
+    kaggle = verify_kaggle_records(args.kaggle_csv_dir.resolve())
     task1 = json.loads(run("task1_plant_seedling", "scripts/verify_results.py"))
     task2 = verify_task2()
     task3 = verify_task3(args.task3_labels.resolve() if args.task3_labels else None)

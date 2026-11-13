@@ -2,7 +2,7 @@
 
 ## Kaggle 最终提交
 
-报告中的 `submission (10).csv` 对应提交 **57668363**，公榜 RMSE 为 **11.41176**，私榜为 **12.70134**。X 坐标等权融合 `rfm_cv80`、`rfm_full80`、`rfm_lora80` 和 `hrnet_rgb80`（各 0.25）；Y 坐标按 `0.25 / 0.25 / 0.50` 融合 `rfm_cv30`、`visionfm_cv20` 和 `hrnet_luma40`。
+报告中的 `submission (3).csv`（见仓库根目录 `submissions/submission (3).csv`）对应七支路融合方案最终提交，公榜 RMSE 为 **11.41176**，私榜为 **12.70134**。X 坐标等权融合 `rfm_cv80`、`rfm_full80`、`rfm_lora80` 和 `hrnet_rgb80`（各 0.25）；Y 坐标按 `0.25 / 0.25 / 0.50` 融合 `rfm_cv30`、`visionfm_cv20` 和 `hrnet_luma40`。
 
 仓库已包含 7 个支路的归档原生坐标预测（`predictions/branches/*.csv`）与最终融合配方（`configs/fusion.json`、`configs/kaggle_final_fusion.json`）。离线运行以下命令可从 7 个支路按 `configs/submission_order.csv` 顺序重建 40 行提交文件，并校验与 `predictions/submission.csv` 及正式提交逐字节一致的 SHA-256（`e5a8f5a495b2c23479630b76d0621fa9905cb5a938e65b0b087e38215e90ed12`）：
 
@@ -59,4 +59,4 @@ python tools/rebuild_submission.py --branch-dir work/predictions --output work/r
 | `records/` | 7 个支路的训练参数、逐轮日志、检查点指纹与 Kaggle 提交记录 |
 | `predictions/oof/` | 5 个交叉验证支路的训练集折外预测 |
 | `predictions/branches/` | 参与最终融合的 7 个支路测试图原生坐标预测 |
-| `predictions/submission.csv` | 最终提交文件（57668363） |
+| `predictions/submission.csv` | 最终提交文件（与根目录 `submissions/submission (3).csv` 逐字节一致） |

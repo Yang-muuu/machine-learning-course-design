@@ -1,81 +1,71 @@
 {
   "verified_on": "2026-11-12",
   "timezone": "Asia/Shanghai",
-  "source": "Authenticated Kaggle submission history and server file download",
+  "source": "Verified Kaggle submission results and archived CSV files in submissions/",
   "tasks": [
     {
       "task": 1,
       "name": "植物幼苗图像分类",
       "competition": "2026task1",
       "kaggle_url": "https://www.kaggle.com/competitions/2026task1/submissions",
-      "local_file": "submission (8).csv",
+      "local_file": "submission (1).csv",
       "rows": 378,
       "sha256": "3b5f222fc11e9ebd36c9974e1ab188d8f95dd2862122434cb9728b0865268e62",
       "metric": "F1 Score",
       "competition_title": "任务一：植物分类",
-      "submission_ref": 57038444,
       "submitted_beijing": "2026-10-10 17:39:22",
       "status": "COMPLETE",
       "public_score": "0.9708",
       "private_score": "0.9708",
-      "match": "byte_identical_sha256",
-      "other_matching_submission_refs": []
+      "match": "byte_identical_sha256"
     },
     {
       "task": 2,
       "name": "人脸表情分类",
       "competition": "2026task2",
       "kaggle_url": "https://www.kaggle.com/competitions/2026task2/submissions",
-      "local_file": "submission (9).csv",
+      "local_file": "submission (2).csv",
       "rows": 7065,
       "sha256": "cfff4a03b1358d588b8c30eb8bedbff96a5468656f214d571aa7c1a4ada33511",
       "metric": "Accuracy Score",
       "competition_title": "任务二：图像情感分类",
-      "submission_ref": 57273426,
       "submitted_beijing": "2026-10-16 23:08:09",
       "status": "COMPLETE",
       "public_score": "0.747",
       "private_score": "0.747",
-      "match": "byte_identical_sha256",
-      "other_matching_submission_refs": [
-        57273410
-      ]
+      "match": "byte_identical_sha256"
     },
     {
       "task": 3,
       "name": "黄斑中央凹定位",
       "competition": "2026task3",
       "kaggle_url": "https://www.kaggle.com/competitions/2026task3/submissions",
-      "local_file": "submission (10).csv",
+      "local_file": "submission (3).csv",
       "rows": 40,
       "sha256": "e5a8f5a495b2c23479630b76d0621fa9905cb5a938e65b0b087e38215e90ed12",
       "metric": "Mean Columnwise Root Mean Squared Error",
       "competition_title": "任务三：中心凹检测定位",
-      "submission_ref": 57668363,
       "submitted_beijing": "2026-10-26 21:45:40",
       "status": "COMPLETE",
       "public_score": "11.41176",
       "private_score": "12.70134",
-      "match": "byte_identical_sha256",
-      "other_matching_submission_refs": []
+      "match": "byte_identical_sha256"
     },
     {
       "task": 4,
       "name": "眼底血管分割",
       "competition": "2026task-4",
       "kaggle_url": "https://www.kaggle.com/competitions/2026task-4/submissions",
-      "local_file": "submission (11).csv",
+      "local_file": "submission (4).csv",
       "rows": 20,
       "sha256": "4d516ae13d88d356dfe5ecc9a17f4f6609b1383c469c7de92b6e809ef2bf5d32",
       "metric": "Dice",
       "competition_title": "任务4: 医学影像分割",
-      "submission_ref": 57947747,
       "submitted_beijing": "2026-11-03 20:36:51",
       "status": "COMPLETE",
       "public_score": "0.86267",
       "private_score": "0.86530",
-      "match": "byte_identical_sha256",
-      "other_matching_submission_refs": []
+      "match": "byte_identical_sha256"
     }
   ]
 }
